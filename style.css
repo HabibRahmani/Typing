@@ -1,0 +1,155 @@
+:root {
+    --main-color: #1F2833;
+    --text-color: #c5c6c7;
+    --title-color: #66FCF7;
+    --border-color: #45A29E;
+    --box-color: #0B0C10;
+}
+
+.main-page {
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    color: var(--title-color);
+    border-bottom: 1px solid var(--text-color);
+    display: flex;
+    justify-content: center;
+    gap: 50%;
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    padding-left: 25%;
+    padding-top: 5%;
+    color: var(--title-color);
+
+}
+
+.title {
+    font-size: 40px;
+}
+
+.info {
+    color: var(--text-color);
+}
+
+.start-btn {
+    padding-top: 50px;
+}
+
+.start {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: unset;
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    font-size: 20px;
+}
+
+.start:hover {
+    transition: 0.3s;
+    color: var(--border-color);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: var(--text-color);
+    border-top: 1px solid var(--text-color);
+}
+
+/*############## Languages Page ###############*/
+.languages {
+    background-color: var(--main-color);
+    color: var(--text-color);
+}
+
+.back{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: unset;
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    font-size: 20px;
+}
+.back:hover {
+    transition: 0.3s;
+    color: var(--title-color);
+}
+.lang-title {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--title-color);
+    font-size: 25px;
+}
+
+.lang-title p {
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--text-color);
+    width: 60%;
+    padding-left: 20%;
+}
+.lang-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding-top: 100px;
+}
+
+.english{
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: unset;
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    font-size: 20px;
+}
+.english:hover {
+    transition: 0.3s;
+    color: var(--title-color);
+}
+.person{
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: unset;
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    font-size: 20px;
+}
+.person:hover {
+    transition: 0.3s;
+    color: var(--title-color);
+}
+/*######## English Page ########*/
+.english-page {
+    background-color: var(--main-color);
+}
+
+
+
+/*######## Person Page ########*/
+.persian-page {
+    background-color: var(--main-color);
+}
