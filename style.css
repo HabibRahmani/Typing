@@ -171,19 +171,29 @@
     background-color: var(--main-color);
 }
 
-/* .middleEnglishInfo{
-    display: flex;
-    justify-content: space-around;
-    
-} */
+
 
 .englishExercise{
+    position: absolute;
+    right: 300px;
+    top: 150px;
     width: 50%;
     color: var(--text-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
+    border: 1px solid var(--box-color);
+    border-radius: 10px;
+    padding: 20px;
 }
+
+.englishExercise p {
+    padding: 10px; 
+}
+
 .englishLessonsSidebar{
+    position: absolute;
+    left: 0;
+    top: 0;
     margin: 0;
     padding: 0;
     width: 200px;
@@ -193,8 +203,31 @@
     color: var(--title-color);
     font-size: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-right: 1px solid var(--box-color);
 }
 
+.exersice-title{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--title-color);
+}
+
+
+.englishLessonsSidebar h1 {
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.englishLessonsSidebar div{
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.englishLessonsSidebar div:hover {
+    transition: 0.5s;
+    background-color: #0B0C10;
+}
 
 /*######## Person Page ########*/
 .persian-page {
