@@ -4,6 +4,20 @@
     --title-color: #66FCF7;
     --border-color: #45A29E;
     --box-color: #0B0C10;
+    --sidebar: #2a3746;
+    --sidebar-hover:#19222e;
+}
+
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--sidebar);
+    border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sidebar-hover);
 }
 
 .main-page {
@@ -171,8 +185,6 @@
     background-color: var(--main-color);
 }
 
-
-
 .englishExercise{
     position: absolute;
     right: 300px;
@@ -180,11 +192,12 @@
     width: 50%;
     color: var(--text-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 14px;
-    border: 1px solid var(--box-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 20px;
 }
+
+
 
 .englishExercise p {
     padding: 10px; 
@@ -200,34 +213,44 @@
     position: fixed;
     height: 100%;
     overflow: auto;
-    color: var(--title-color);
-    font-size: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-right: 1px solid var(--box-color);
+    border-right: 1px solid var(--border-color);
 }
 
 .exersice-title{
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: var(--title-color);
+    font-size: 20px;
 }
 
-
-.englishLessonsSidebar h1 {
+.lessons h1 {
     padding: 10px;
     padding-left: 20px;
+    font-size: 16px;
+    color: var(--border-color);
 }
+
+.sidebarTitle{
+    text-align: center;
+    font-size: 16px;
+    color: var(--title-color);
+}
+
 
 .englishLessonsSidebar div{
     padding: 0;
     margin: 0;
     cursor: pointer;
+    margin-top: -10px;
 }
 
-.englishLessonsSidebar div:hover {
+.lessons div:hover {
     transition: 0.5s;
-    background-color: #0B0C10;
+    background-color: var(--box-color);
 }
+
+
 
 /*######## Person Page ########*/
 .persian-page {
