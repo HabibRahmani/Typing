@@ -202,7 +202,7 @@
 .englishExercise p {
     padding: 10px; 
     font-size: 24px;
-    text-align: left;
+    text-align: center;
     line-height: 150%;
 }
 
@@ -251,6 +251,7 @@
 .lessons div:hover {
     transition: 0.5s;
     background-color: var(--box-color);
+
 }
 
 
