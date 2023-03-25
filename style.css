@@ -5,7 +5,7 @@
     --border-color: #45A29E;
     --box-color: #0B0C10;
     --sidebar: #2a3746;
-    --sidebar-hover:#19222e;
+    --sidebar-hover:#324253;
 }
 
 ::-webkit-scrollbar {
@@ -201,6 +201,9 @@
 
 .englishExercise p {
     padding: 10px; 
+    font-size: 24px;
+    text-align: left;
+    line-height: 150%;
 }
 
 .englishLessonsSidebar{
@@ -233,7 +236,7 @@
 
 .sidebarTitle{
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     color: var(--title-color);
 }
 
