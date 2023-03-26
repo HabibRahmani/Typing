@@ -12,7 +12,9 @@ const exercises = [
     "ww oo you week all; this is a kid; oo ww wwee ooii the wood is far; eat that all; where are you ww oo hide ww oo you week all; this is a kid; oo ww wwee rrww iioo oouu  the wood is far; eat that all; where are you ww oo hide ww oo you week all; this is a kid; door is far; wwoo ooww wwee ooii wwrr oouu eat that all; where are you ww oo hide",
     "pp qq qqpp qqww ppoo wwqq oopp iq ep tq yp play quota; type this letter add this letter play that qqww ppoo iioo eeww ppqq pp qq qqpp qqww ppoo wwqq oopp iq ep tq yp play quota; type this letter add this letter play that qqww ppoo iioo eeww ppqq",
     "vv nn bb jjnn ffvv hhbb ggbb ; open this door please; board is far ; vv bb nn nj vf bh bg yynn ttvv uunn rrvv bbbb vv nn bb jjnn ffvv hhbb ggbb ; open this door please; board is far ; vv bb nn nj vf bh bg yynn ttvv uunn rrvv bbbb vv nn bb jjnn ffvv hhbb ggbb ; open this door please; board is far ; vv bb nn nj vf bh bg yynn ttvv uunn rrvv bbbb",
-    "cc mm ddcc kkmm mmcc kmdc milk is some thing to drink and it has more vitamin for our body; try to drink milk every day cc mm ddcc kkmm mmcc kmdc milk is some thing to drink and it has more vitamin for our body; try to drink milk every day","11","12",];
+    "cc mm ddcc kkmm mmcc kmdc milk is some thing to drink and it has more vitamin for our body; try to drink milk every day cc mm ddcc kkmm mmcc kmdc milk is some thing to drink and it has more vitamin for our body; try to drink milk every day",
+    "x, ,,xx ssxx ll,, sxl, ll,, ssxx ll,, sx l, ssxx the box is so far, ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,, xs ,l ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,,",
+    "zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far.",];
 
 for(let i = 0; i < lessons.length; i++){
     lessons[i].addEventListener("click", function() {
