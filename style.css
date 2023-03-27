@@ -254,6 +254,17 @@
 
 }
 
+#userInput {
+    position: absolute;
+    bottom: 20px;
+    right: 45%;
+    width: 20px;
+    border-radius: 5px;
+    padding: 13px 20px;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    border: none;
+}
 
 
 /*######## Person Page ########*/
