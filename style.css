@@ -256,16 +256,26 @@
 
 #userInput {
     position: absolute;
-    bottom: 20px;
-    right: 45%;
-    width: 20px;
+    top: 202px;
+    left: 365px;
+    width: 10px;
+    height: 40px;
     border-radius: 5px;
-    padding: 13px 20px;
-    color: var(--text-color);
-    background-color: var(--main-color);
+    font-size: 24px;
+    background-color: inherit;
     border: none;
+    outline: none;
+    text-align: center;
+    color: white;
 }
-
+.score {
+    position: absolute;
+    top: 200px;
+    right: 50px;
+    font-size: 30px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serifs;
+}
 
 /*######## Person Page ########*/
 .persian-page {

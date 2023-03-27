@@ -2,6 +2,8 @@ const lessons = document.querySelectorAll('.lesson');
 const lessonText = document.querySelector('.lesson-text');
 const currentLesson = document.querySelector('.current-lesson');
 const userInput = document.getElementById("userInput")
+const score = document.querySelector('.score');
+let curserLeft = 365;
 
 const exercises = [
     "asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; llss aa;; ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; ;;ss aall ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aal; ;;ss aass ss aass llss;; asl;",
@@ -18,24 +20,36 @@ const exercises = [
     "zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far.",
 ];
 
+
+
+let lesson;
 let timer;
 timer = setInterval(input, 20)
-
-function input (){
-    console.log(userInput.value);
+let char = 0;
+function input() {
+    let value = userInput.value;
+    if (value === exercises[lesson][char]) {
+        char++;
+        score.textContent = char;
+        curserLeft += 10;
+        userInput.style.left = curserLeft+'px';
+    }
     userInput.value = ""
-userInput.focus();
+    userInput.focus();
 
 }
+for (let i = 0; i < lessons.length; i++) {
+    const a = userInput.value;
 
-for(let i = 0; i < lessons.length; i++){
-const a = userInput.value;
-
-    lessons[i].addEventListener("click", function() {
+    lessons[i].addEventListener("click", function () {
+        lesson = i;
+        char = 0;
+        score.textContent = char;
         userInput.value = a;
         console.log(userInput.value);
         lessonText.textContent = exercises[i];
         lessonText.style.textAlign = "left";
-        currentLesson.textContent = "Lesson_"+(i+1);
+        currentLesson.textContent = "Lesson_" + (i + 1);
     })
 }
+exercises[0].style.color = 'red';
