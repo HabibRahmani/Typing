@@ -128,7 +128,7 @@
     color: var(--title-color);
 }
 .lang-title {
-    text-align: center;
+    text-align: center; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: var(--title-color);
     font-size: 25px;
@@ -202,7 +202,7 @@
 .englishExercise p {
     padding: 10px; 
     font-size: 24px;
-    text-align: center;
+    text-align: justify !important;
     line-height: 150%;
 }
 
@@ -254,20 +254,6 @@
 
 }
 
-#userInput {
-    position: absolute;
-    top: 202px;
-    left: 365px;
-    width: 10px;
-    height: 40px;
-    border-radius: 5px;
-    font-size: 24px;
-    background-color: inherit;
-    border: none;
-    outline: none;
-    text-align: center;
-    color: white;
-}
 .score {
     position: absolute;
     top: 200px;
@@ -275,6 +261,15 @@
     font-size: 30px;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serifs;
+}
+
+.writtenLetters {
+    color: #9dd2f1;
+}
+
+.pointer {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /*######## Person Page ########*/

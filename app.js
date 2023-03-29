@@ -1,9 +1,8 @@
 const lessons = document.querySelectorAll('.lesson');
 const lessonText = document.querySelector('.lesson-text');
 const currentLesson = document.querySelector('.current-lesson');
-const userInput = document.getElementById("userInput")
 const score = document.querySelector('.score');
-let curserLeft = 365;
+const writtenLetters = document.querySelector('.writtenLetters');
 
 const exercises = [
     "asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; llss aa;; ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; ;;ss aall ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aal; ;;ss aass ss aass llss;; asl;",
@@ -22,33 +21,30 @@ const exercises = [
 
 
 
-let lesson;
+
 let timer;
 timer = setInterval(input, 20)
+
+
+let lesson;
 let char = 0;
 function input() {
-    let value = userInput.value;
     if (value === exercises[lesson][char]) {
         char++;
         score.textContent = char;
-        curserLeft += 10;
-        userInput.style.left = curserLeft+'px';
-    }
-    userInput.value = ""
-    userInput.focus();
 
+        writtenLetters.textContent += value;
+        lessons[lesson][char] = Str.replace(char,'')
+
+    }
 }
 for (let i = 0; i < lessons.length; i++) {
-    const a = userInput.value;
 
     lessons[i].addEventListener("click", function () {
         lesson = i;
         char = 0;
         score.textContent = char;
-        userInput.value = a;
-        console.log(userInput.value);
         lessonText.textContent = exercises[i];
-        lessonText.style.textAlign = "left";
         currentLesson.textContent = "Lesson_" + (i + 1);
     })
 }
