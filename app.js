@@ -19,28 +19,32 @@ const exercises = [
     "zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far.",
 ];
 
-let timer;
-timer = setInterval(input, 20)
-let value;
+let replacedLesson = "";
+let newLessonChanges = "";
+let lesson ;
+let char ;
+let value = "";
 document.addEventListener('keypress', (e) => {
     value = e.key;
+    console.log(value);
+    if(lesson >= 0 && char >= 0){
+        input();
+    }
 })
 
-let lesson;
-let char = 0;
+
 function input() {
 
     if (value === exercises[lesson][char]) {
-        exercises[lesson] = exercises[lesson].replace(exercises[lesson][char], '');
-        lessonText.textContent = exercises[lesson];
+        console.log("Input Enterd");
+        
 
-
-        exercises[lesson][char] = "";
-        console.log(exercises[lesson][char]);
+        newLessonChanges += value;
+        replaceChar(exercises[lesson] , newLessonChanges);
+        
+        writtenLetters.textContent += value;
         char++;
         score.textContent = char;
-
-        writtenLetters.textContent += value;
     }
 
 }
@@ -48,9 +52,20 @@ for (let i = 0; i < lessons.length; i++) {
     lessons[i].addEventListener("click", function () {
         lesson = i;
         char = 0;
-        score.textContent = char;
+        score.textContent = 0;
         lessonText.textContent = exercises[i];
         currentLesson.textContent = "Lesson_" + (i + 1);
         writtenLetters.textContent = '';
     })
+}
+
+function replaceChar (old , newLesson){
+    console.log("replaced");
+    replacedLesson = "";
+    for(let i = newLesson.length ; i < old.length; i++){
+            replacedLesson += old[i];
+    }
+    console.log(replacedLesson);
+    exercises[0] = replacedLesson;
+
 }
