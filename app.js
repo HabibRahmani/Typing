@@ -1,5 +1,5 @@
 const lessons = document.querySelectorAll('.lesson');
-const lessonText = document.querySelector('.lesson-text');
+const lessonText = document.querySelector('.text');
 const currentLesson = document.querySelector('.current-lesson');
 const score = document.querySelector('.score');
 const writtenLetters = document.querySelector('.writtenLetters');
@@ -19,33 +19,38 @@ const exercises = [
     "zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far.",
 ];
 
-
-
-
 let timer;
 timer = setInterval(input, 20)
-
+let value;
+document.addEventListener('keypress', (e) => {
+    value = e.key;
+})
 
 let lesson;
 let char = 0;
 function input() {
+
     if (value === exercises[lesson][char]) {
+        exercises[lesson] = exercises[lesson].replace(exercises[lesson][char], '');
+        lessonText.textContent = exercises[lesson];
+
+
+        exercises[lesson][char] = "";
+        console.log(exercises[lesson][char]);
         char++;
         score.textContent = char;
 
         writtenLetters.textContent += value;
-        lessons[lesson][char] = Str.replace(char,'')
-
     }
+
 }
 for (let i = 0; i < lessons.length; i++) {
-
     lessons[i].addEventListener("click", function () {
         lesson = i;
         char = 0;
         score.textContent = char;
         lessonText.textContent = exercises[i];
         currentLesson.textContent = "Lesson_" + (i + 1);
+        writtenLetters.textContent = '';
     })
 }
-exercises[0].style.color = 'red';
