@@ -3,6 +3,7 @@ const lessonText = document.querySelector('.text');
 const currentLesson = document.querySelector('.current-lesson');
 const score = document.querySelector('.score');
 const writtenLetters = document.querySelector('.writtenLetters');
+const pointer = document.querySelector('.pointer');
 
 const exercises = [
     "asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; llss aa;; ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; ;;ss aall ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aal; ;;ss aass ss aass llss;; asl;",
@@ -21,51 +22,64 @@ const exercises = [
 
 let replacedLesson = "";
 let newLessonChanges = "";
-let lesson ;
-let char ;
+let lesson;
+let char;
 let value = "";
+let pointerTimer;
+let pointerOn = true;
+
 document.addEventListener('keypress', (e) => {
     value = e.key;
-    console.log(value);
-    if(lesson >= 0 && char >= 0){
+    if (lesson >= 0 && char >= 0) {
         input();
+        pointer. style.visibility = "visible";
     }
 })
 
 
 function input() {
-
     if (value === exercises[lesson][char]) {
         console.log("Input Enterd");
-        
-
         newLessonChanges += value;
-        replaceChar(exercises[lesson] , newLessonChanges);
-        
+        replaceChar(exercises[lesson], newLessonChanges);
+
         writtenLetters.textContent += value;
         char++;
         score.textContent = char;
     }
-
 }
 for (let i = 0; i < lessons.length; i++) {
     lessons[i].addEventListener("click", function () {
         lesson = i;
+        console.log("lesson" + lesson);
         char = 0;
+        value = "";
+        replacedLesson = "";
+        writtenLetters.textContent = "";
         score.textContent = 0;
         lessonText.textContent = exercises[i];
         currentLesson.textContent = "Lesson_" + (i + 1);
         writtenLetters.textContent = '';
+        pointer. style.visibility = "visible";
+        pointerTimer = setInterval( pointerDisplay, 500);
     })
 }
 
-function replaceChar (old , newLesson){
+function replaceChar(old, newLesson) {
     console.log("replaced");
     replacedLesson = "";
-    for(let i = newLesson.length ; i < old.length; i++){
-            replacedLesson += old[i];
+    for (let i = newLesson.length; i < old.length; i++) {
+        replacedLesson += old[i];
     }
-    console.log(replacedLesson);
-    exercises[0] = replacedLesson;
+    lessonText.textContent = replacedLesson;
+}
 
+function pointerDisplay (){
+    if(pointerOn){
+        pointer. style.visibility = "hidden";
+        pointerOn = false;
+    }else {
+        pointer. style.visibility = "visible";
+        pointerOn = true;
+    }
 }

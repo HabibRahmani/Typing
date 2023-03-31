@@ -198,7 +198,6 @@
 }
 
 
-
 .englishExercise p {
     padding: 10px; 
     font-size: 24px;
@@ -270,6 +269,8 @@
 .pointer {
     color: white;
     font-family: 'Times New Roman', Times, serif;
+    visibility: hidden;
+    font-size: 30px;
 }
 
 /*######## Person Page ########*/
