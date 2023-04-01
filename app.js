@@ -53,24 +53,6 @@ function input() {
         score.textContent = char;
     }
 }
-for (let i = 0; i < lessons.length; i++) {
-    lessons[i].addEventListener("click", function () {
-        lesson = i;
-        char = 0;
-        value = "";
-        replacedLesson = "";
-        writtenLetters.textContent = "";
-        score.textContent = 0;
-
-
-        lessonText.textContent = exercises[i];
-        currentLesson.textContent = "Lesson_" + (i + 1);
-        writtenLetters.textContent = '';
-        pointer.style.visibility = "visible";
-        pointerTimer = clearInterval();
-        pointerTimer = setInterval(pointerDisplay, 500);
-    })
-}
 
 function replaceChar(old, newLesson) {
     replacedLesson = "";
@@ -94,7 +76,23 @@ function pointerDisplay() {
 
 startBtn.addEventListener("click", () => {
     console.log("clicked");
-    lesson = 0;
+    if (currentExercise >= 0) {
+        lesson++;
+    }else{
+        lesson = 0;
+    }
+    currentExercise = lesson;
     char = 0;
+    value = "";
+    replacedLesson = "";
+    writtenLetters.textContent = "";
+    score.textContent = 0;
+
+    lessonText.textContent = exercises[lesson];
+    currentLesson.textContent = "Lesson_" + (lesson + 1);
+    writtenLetters.textContent = '';
+    pointer.style.visibility = "visible";
+    clearInterval(pointerTimer);
+    pointerTimer = setInterval(pointerDisplay, 500);
     startBtn.textContent = "New Lesson"
 });
