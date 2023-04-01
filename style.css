@@ -114,7 +114,7 @@
 .back{
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: 230px;
     cursor: pointer;
     padding: 10px 20px;
     background-color: unset;
@@ -263,7 +263,7 @@
 }
 
 .writtenLetters {
-    color: #9dd2f1;
+    color: #90c4f0;
 }
 
 .pointer {
@@ -271,6 +271,23 @@
     font-family: 'Times New Roman', Times, serif;
     visibility: hidden;
     font-size: 30px;
+}
+
+.start-btn{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: unset;
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    font-size: 20px;
+}
+.start-btn:hover {
+    transition: 0.3s;
+    color: var(--title-color);
 }
 
 /*######## Person Page ########*/

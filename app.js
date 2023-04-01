@@ -4,6 +4,9 @@ const currentLesson = document.querySelector('.current-lesson');
 const score = document.querySelector('.score');
 const writtenLetters = document.querySelector('.writtenLetters');
 const pointer = document.querySelector('.pointer');
+const startBtn = document.querySelector('.start-btn');
+
+
 
 const exercises = [
     "asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; llss aa;; ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; ;;ss aall ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aal; ;;ss aass ss aass llss;; asl;",
@@ -19,7 +22,7 @@ const exercises = [
     "x, ,,xx ssxx ll,, sxl, ll,, ssxx ll,, sx l, ssxx the box is so far, ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,, xs ,l ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,,",
     "zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far.",
 ];
-
+let audio = new Audio("click6.mp3");
 let replacedLesson = "";
 let newLessonChanges = "";
 let lesson;
@@ -27,19 +30,21 @@ let char;
 let value = "";
 let pointerTimer;
 let pointerOn = true;
+let currentExercise;
+
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
     if (lesson >= 0 && char >= 0) {
+        audio.play();
         input();
-        pointer. style.visibility = "visible";
+        pointer.style.visibility = "visible";
     }
 })
 
 
 function input() {
     if (value === exercises[lesson][char]) {
-        console.log("Input Enterd");
         newLessonChanges += value;
         replaceChar(exercises[lesson], newLessonChanges);
 
@@ -51,22 +56,23 @@ function input() {
 for (let i = 0; i < lessons.length; i++) {
     lessons[i].addEventListener("click", function () {
         lesson = i;
-        console.log("lesson" + lesson);
         char = 0;
         value = "";
         replacedLesson = "";
         writtenLetters.textContent = "";
         score.textContent = 0;
+
+
         lessonText.textContent = exercises[i];
         currentLesson.textContent = "Lesson_" + (i + 1);
         writtenLetters.textContent = '';
-        pointer. style.visibility = "visible";
-        pointerTimer = setInterval( pointerDisplay, 500);
+        pointer.style.visibility = "visible";
+        pointerTimer = clearInterval();
+        pointerTimer = setInterval(pointerDisplay, 500);
     })
 }
 
 function replaceChar(old, newLesson) {
-    console.log("replaced");
     replacedLesson = "";
     for (let i = newLesson.length; i < old.length; i++) {
         replacedLesson += old[i];
@@ -74,12 +80,21 @@ function replaceChar(old, newLesson) {
     lessonText.textContent = replacedLesson;
 }
 
-function pointerDisplay (){
-    if(pointerOn){
-        pointer. style.visibility = "hidden";
+function pointerDisplay() {
+    if (pointerOn) {
+        pointer.style.visibility = "hidden";
         pointerOn = false;
-    }else {
-        pointer. style.visibility = "visible";
+    } else {
+        pointer.style.visibility = "visible";
         pointerOn = true;
     }
 }
+
+
+
+startBtn.addEventListener("click", () => {
+    console.log("clicked");
+    lesson = 0;
+    char = 0;
+    startBtn.textContent = "New Lesson"
+});
