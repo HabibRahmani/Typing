@@ -114,7 +114,7 @@
 .back{
     position: absolute;
     bottom: 20px;
-    left: 230px;
+    right: 20px;
     cursor: pointer;
     padding: 10px 20px;
     background-color: unset;
@@ -275,8 +275,8 @@
 
 .start-btn{
     position: absolute;
-    bottom: 20px;
-    right: 30px;
+    bottom: 10px;
+    right: 10px;
     cursor: pointer;
     padding: 10px 20px;
     background-color: unset;
@@ -288,6 +288,10 @@
 .start-btn:hover {
     transition: 0.3s;
     color: var(--title-color);
+}
+
+.wrongWrittenLetters {
+    color: #f11717;
 }
 
 /*######## Person Page ########*/

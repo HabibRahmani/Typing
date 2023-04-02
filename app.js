@@ -31,18 +31,16 @@ let value = "";
 let pointerTimer;
 let pointerOn = true;
 let currentExercise;
-
+let completedLessons = 0;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
     console.log(value + "  key press");
     if (lesson >= 0 && char >= 0) {
-        audio.play();
         input();
         pointer.style.visibility = "visible";
     }
 })
-
 
 function input() {
     if (value === exercises[lesson][char]) {
@@ -52,11 +50,16 @@ function input() {
         writtenLetters.textContent += value;
         char++;
         score.textContent = char;
+    }else{
+        audio.play();
     }
 }
 
 function replaceChar(old, newLesson) {
     replacedLesson = "";
+    if(newLesson.length === old.length){
+        completedLessons ++;
+    }
     for (let i = newLesson.length; i < old.length; i++) {
         replacedLesson += old[i];
     }
@@ -74,6 +77,10 @@ function pointerDisplay() {
 }
 
 startBtn.addEventListener("click", () => {
+    if(lesson >= 0 && lesson + 1 != completedLessons){
+        alert("Complete This Lesson")
+        return;
+    }
     if (currentExercise >= 0) {
         lesson++;
     }else{
