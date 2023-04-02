@@ -35,6 +35,7 @@ let currentExercise;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
+    console.log(value + "  key press");
     if (lesson >= 0 && char >= 0) {
         audio.play();
         input();
@@ -72,10 +73,7 @@ function pointerDisplay() {
     }
 }
 
-
-
 startBtn.addEventListener("click", () => {
-    console.log("clicked");
     if (currentExercise >= 0) {
         lesson++;
     }else{
@@ -85,6 +83,7 @@ startBtn.addEventListener("click", () => {
     char = 0;
     value = "";
     replacedLesson = "";
+    newLessonChanges = "";
     writtenLetters.textContent = "";
     score.textContent = 0;
 
