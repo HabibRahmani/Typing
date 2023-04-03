@@ -35,7 +35,6 @@ let completedLessons = 0;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
-    console.log(value + "  key press");
     if (lesson >= 0 && char >= 0) {
         input();
         pointer.style.visibility = "visible";
@@ -85,6 +84,10 @@ startBtn.addEventListener("click", () => {
         lesson++;
     }else{
         lesson = 0;
+    }
+    if(lesson >= 12){
+        lessonText.textContent = "The End!"
+        return;
     }
     currentExercise = lesson;
     char = 0;
