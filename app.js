@@ -6,18 +6,7 @@ const writtenLetters = document.querySelector('.writtenLetters');
 const pointer = document.querySelector('.pointer');
 const startBtn = document.querySelector('.start-btn');
 
-const persionExercises = ['ب ت ب ت بب تت ب ت بت بب تت ب ت ت ب ت بت ت ت ت تت بب تت بب بت تت بب تت بب تت ب ت ب ت ت ب ب ت ب تب بت ب بت',
-"ن ی ن ی ن ن ی ن ی ن ی ی ن نی ن ن ی ی ی ن نی ی ن ی تب بت ت ب ی ن ت ن ی ن ی ن ن ی ن ی ن ی ی ن نی ن ن ی ی ی ن نی ی ن ی تب بت ت ب ی ن ت",
-"ش ک س م ش ک س م ش ک س م م س ش ک م س م کم شس کم بت نی مس شک سم ش ک س م ش ک س م ش ک س م ش ک س م م س ش ک م س م کم شس کم بت نی مس شک سم ش ک س م",
-"ا ل ل ا ل ا ا ل ا ل ل ا بلبل بابا نیش لالا نان ا ل ل ا کاکا ماما ا ل ل ا ل ا ا ل ا ل ل ا بلبل بابا نیش لالا نان ا ل ل ا کاکا ماما",
-"ف ق ع غ ق ف غ ع ف ق غ ع ع ف ف ق ق فلفل عینک بت ف ق غ ع ف ق غ ع ف غ ف ق ع غ ق ف غ ع ف ق غ ع ع ف ف ق ق فلفل عینک بت ف ق غ ع ف ق غ ع ف غ",
-"ه ث ه ث ث ه ثث ه ه ث ث ث ه ه ث ث ه عینک ماه این بیست است لاله ه ث ه ث ث ه ثث ه ه ث ث ث ه ه ث ث ه عینک ماه این بیست است لاله",
-"ح خ ص ض خ ح ص ض ص خ ض ح ص خ ض ح خانه ض ح عینک ماه ح خ ص ض خ ح ص ض ص خ ض ح ص خ ض ح خانه ض ح عینک ماه ح خ ص ض خ ح ص ض ص خ ض ح ص خ ض ح خانه ض ح عینک ماه",
-"ج چ ج چ ج چ ج چ ج چ چاله عجله نکن عینک من شکسته است چ ج ج چ ج چ ج چ ج چ ج چ ج چ ج چ چاله عجله نکن عینک من شکسته است چ ج ج چ ج چ",
-"پ پ پ پ پ پ پ پ پ پ پ پله خیلی بالا است پای من شکسته است پیچ من کجا است پ پ پ پ پ پ پ پ پ پ پ پله خیلی بالا است پای من شکسته است پیچ من کجا است",
-"ر ز د ذ ر ز د ذ د ذ ر ز کجا به سلامت من به شما کار دارم پای من را شکسته ای پیسه من را بده این کار شما شایسته شما نیست ر ز د ذ ر ز ذ د رر زز دد ذذ",
-"ط ظ و . و. و. طظ ط ظ ظ ط و . کار خود را به خدا بسپارید که او حلال مشکلات است. و همیشه از او کمک بخواهید. . و . و ط ظ طط ظظ وو .. طاهر همیشه به من در کار هایم کمک میکند. و برادر او ظاهر هم همینطور.",
-]
+
 
 const exercises = [
     "asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; llss aa;; ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; ;;ss aall ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aal; ;;ss aass ss aass llss;; asl;",
@@ -33,7 +22,7 @@ const exercises = [
     "x, ,,xx ssxx ll,, sxl, ll,, ssxx ll,, sx l, ssxx the box is so far, ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,, xs ,l ssxx ll,, x, ,,xx ssxx ll,, sxl, ll,, ssxx the box is so far, ssxx ll,,",
     "zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far. zz .. ;;.. aazz ..;; zzaa az sx ;. l, i love to go to the zoo, but it is so far.",
 ];
-let audio = new Audio("click6.mp3");
+let audio = new Audio("click1.mp3");
 let replacedLesson = "";
 let newLessonChanges = "";
 let lesson;
@@ -46,6 +35,7 @@ let completedLessons = 0;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
+    audio.pause();
     if (lesson >= 0 && char >= 0) {
         input();
         pointer.style.visibility = "visible";
