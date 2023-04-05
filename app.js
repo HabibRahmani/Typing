@@ -35,7 +35,6 @@ let completedLessons = 0;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
-    audio.pause();
     if (lesson >= 0 && char >= 0) {
         input();
         pointer.style.visibility = "visible";
