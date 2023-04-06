@@ -4,7 +4,7 @@ const currentLesson = document.querySelector('.current-lesson');
 const score = document.querySelector('.score');
 const writtenLetters = document.querySelector('.writtenLetters');
 const pointer = document.querySelector('.pointer');
-const startBtn = document.querySelector('.start-btn');
+const startBtn = document.querySelector('.start-btn-lang');
 
 
 const persionExercises = ["ب ت ب ت بب تت ب ت بت بب تت ب ت ت ب ت بت ت ت ت تت بب تت بب بت تت بب تت بب تت ب ت ب ت ت ب ب ت ب تب بت ب بت",

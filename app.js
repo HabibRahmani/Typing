@@ -4,7 +4,7 @@ const currentLesson = document.querySelector('.current-lesson');
 const score = document.querySelector('.score');
 const writtenLetters = document.querySelector('.writtenLetters'); 
 const pointer = document.querySelector('.pointer');
-const startBtn = document.querySelector('.start-btn');
+const startBtn = document.querySelector('.start-btn-lang');
 
 
 
