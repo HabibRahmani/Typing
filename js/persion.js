@@ -1,7 +1,7 @@
 const lessons = document.querySelectorAll('.lesson');
 const lessonText = document.querySelector('.text');
 const currentLesson = document.querySelector('.current-lesson');
-const score = document.querySelector('.score');
+const speedText = document.querySelector('.speed');
 const writtenLetters = document.querySelector('.writtenLetters');
 const pointer = document.querySelector('.pointer');
 const startBtn = document.querySelector('.start-btn-lang');
@@ -32,11 +32,11 @@ let currentExercise;
 let completedLessons = 0;
 let speed, speedTimer;
 let sec = 0;
+let words = 1;
 
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
-    console.log(value +" value");
     if (lesson >= 0 && char >= 0) {
         input();
         pointer.style.visibility = "visible";
@@ -45,16 +45,12 @@ document.addEventListener('keypress', (e) => {
 })
 
 function input() {
-    console.log(persionExercises[lesson][char]+" lesson");
     if (value === persionExercises[lesson][char]) {
-        console.log("input mached");
-
         newLessonChanges += value;
         replaceChar(persionExercises[lesson], newLessonChanges);
 
         writtenLetters.textContent += value;
         char++;
-        score.textContent = char;
     } else {
         audio.play();
     }
@@ -64,6 +60,7 @@ function replaceChar(old, newLesson) {
     replacedLesson = "";
     if (newLesson.length === old.length) {
         completedLessons++;
+        countSpeed();
     }
     for (let i = newLesson.length; i < old.length; i++) {
         replacedLesson += old[i];
@@ -95,13 +92,14 @@ startBtn.addEventListener("click", () => {
         lessonText.textContent = "پایان"
         return;
     }
+    countWords()
+
     currentExercise = lesson;
     char = 0;
     value = "";
     replacedLesson = "";
     newLessonChanges = "";
     writtenLetters.textContent = "";
-    score.textContent = 0;
 
     lessonText.textContent = persionExercises[lesson];
     currentLesson.textContent = "Lesson_" + (lesson + 1);
@@ -114,5 +112,23 @@ startBtn.addEventListener("click", () => {
 
 function sTimer (){
     sec++;
+}
+
+function countWords (){
+    for(let i = 0; i < persionExercises[lesson].length; i++){
+        if(persionExercises[lesson][i] === " "){
+            words++;
+        }
+    }
+}
+
+function countSpeed (){
+    console.log("countspeed");
+    let userSpeed = (60 * words) / sec;
+    console.log(words+" words");
     console.log(sec+" secs");
+    speedText.textContent = userSpeed;
+    words = 1;
+    sec = 0;
+    clearInterval(speedTimer);
 }
