@@ -30,6 +30,9 @@ let pointerTimer;
 let pointerOn = true;
 let currentExercise;
 let completedLessons = 0;
+let speed, speedTimer;
+let sec = 0;
+
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
@@ -37,6 +40,7 @@ document.addEventListener('keypress', (e) => {
     if (lesson >= 0 && char >= 0) {
         input();
         pointer.style.visibility = "visible";
+        speedTimer = setInterval(sTimer, 1000);
     }
 })
 
@@ -91,7 +95,6 @@ startBtn.addEventListener("click", () => {
         lessonText.textContent = "پایان"
         return;
     }
-    console.log(lesson);
     currentExercise = lesson;
     char = 0;
     value = "";
@@ -108,3 +111,8 @@ startBtn.addEventListener("click", () => {
     pointerTimer = setInterval(pointerDisplay, 500);
     startBtn.textContent = "درس جدید"
 });
+
+function sTimer (){
+    sec++;
+    console.log(sec+" secs");
+}
