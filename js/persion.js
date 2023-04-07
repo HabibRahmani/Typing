@@ -33,6 +33,7 @@ let completedLessons = 0;
 let speed, speedTimer;
 let sec = 0;
 let words = 1;
+let callSpeedTimer = false;
 
 
 document.addEventListener('keypress', (e) => {
@@ -40,7 +41,10 @@ document.addEventListener('keypress', (e) => {
     if (lesson >= 0 && char >= 0) {
         input();
         pointer.style.visibility = "visible";
-        speedTimer = setInterval(sTimer, 1000);
+        if(callSpeedTimer === false){
+            speedTimer = setInterval(sTimer, 1000);
+            callSpeedTimer = true;
+        }
     }
 })
 
@@ -93,6 +97,8 @@ startBtn.addEventListener("click", () => {
         return;
     }
     countWords()
+    speedText.textContent = "0";
+    callSpeedTimer = false;
 
     currentExercise = lesson;
     char = 0;
@@ -127,7 +133,7 @@ function countSpeed (){
     let userSpeed = (60 * words) / sec;
     console.log(words+" words");
     console.log(sec+" secs");
-    speedText.textContent = userSpeed;
+    speedText.textContent = Math.floor(userSpeed);
     words = 1;
     sec = 0;
     clearInterval(speedTimer);

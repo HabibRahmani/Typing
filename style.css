@@ -79,7 +79,7 @@
 
 .start:hover {
     transition: 0.3s;
-    color: var(--border-color);
+    color: var(--title-color);
 }
 
 .footer {
@@ -253,7 +253,7 @@
 
 }
 
-.score {
+.speed {
     position: absolute;
     top: 200px;
     right: 50px;
