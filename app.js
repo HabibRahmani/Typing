@@ -1,15 +1,15 @@
 const lessons = document.querySelectorAll('.lesson');
 const lessonText = document.querySelector('.text');
 const currentLesson = document.querySelector('.current-lesson');
-const score = document.querySelector('.score');
-const writtenLetters = document.querySelector('.writtenLetters'); 
+const speedText = document.querySelector('.speed');
+const writtenLetters = document.querySelector('.writtenLetters');
 const pointer = document.querySelector('.pointer');
 const startBtn = document.querySelector('.start-btn-lang');
 
-
+// asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; llss aa;; ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; ;;ss aall ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aal; ;;ss aass ss aass llss;; asl;
 
 const exercises = [
-    "asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; llss aa;; ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aa;; ;;ss aall ss aass llss;; asl; ll aa ss ;; all saa a;; ll aa llss aa;; ssll llaa ss;; ssaa aa ;; ll llaa ll;; ssaa aal; ;;ss aass ss aass llss;; asl;",
+    "a a a a a a",
     "df fj jk dddd jjkk dkjf fjkd fjj kdd kkaa all; dddd fjj kk ssll fjkl add jkl; df jk dddd jjkk dkjf fjkd fjj kdd add all; dddd fjj kk ssll fjkl fall jkl; df jk dddd jjkk dkjf fjkd fjj kdd kkaa all; dddd fjj kk ssll fjkl asdf jkl; df jk dddd jjkk dkjf add all; fjj kdd kkaa all; dddd fjj kk ssll fjkl asdf jkl; df jk dddd jjkk dkjf fjkd fjj kdd kkaa df fj dddd fjj kk ssll fjkl asdf jkl;",
     "gh hg fg hj jh gghh gff hjj kdd all; fall jjhhh ffgg hhjj ggff add all; sad gh hg fg hj jh gghh gff hjj kdd all; fall jjhhh ffgg hhjj ggff add all; sad gh hg fg hj jh gghh gff hjj kdd all; fall jjhhh ffgg hhjj ggff add all; sad gh hg fg hj jh gghh gff hjj kdd all; fall jjhhh ffgg hhjj ggff add all; sad",
     "tt yy tg yh jjyy fftt tg yh add all; sad ttgg yyhh jyjy fat hhyy ggtt fat all; ty tt yy tg yh jjyy fftt tg yh add all; sad ttgg yyhh jyjy fat hhyy ggtt fat all; ty tt yy tg yh jjyy fftt tg yh add all; sad ttgg yyhh jyjy fat hhyy ggtt fat all; ty tt yy tg yh jjyy fftt tg yh add all; sad ttgg yyhh jyjy fat hhyy ggtt fat all; ty",
@@ -33,11 +33,21 @@ let pointerOn = true;
 let currentExercise;
 let completedLessons = 0;
 
+
+let speed, speedTimer;
+let sec = 0;
+let words = 1;
+let callSpeedTimer = false;
+
 document.addEventListener('keypress', (e) => {
     value = e.key;
     if (lesson >= 0 && char >= 0) {
         input();
         pointer.style.visibility = "visible";
+        if (callSpeedTimer === false) {
+            speedTimer = setInterval(sTimer, 1000);
+            callSpeedTimer = true;
+        }
     }
 })
 
@@ -48,16 +58,17 @@ function input() {
 
         writtenLetters.textContent += value;
         char++;
-        score.textContent = char;
-    }else{
+    } else {
         audio.play();
     }
 }
 
 function replaceChar(old, newLesson) {
     replacedLesson = "";
-    if(newLesson.length === old.length){
-        completedLessons ++;
+    if (newLesson.length === old.length) {
+        completedLessons++;
+        countSpeed();
+
     }
     for (let i = newLesson.length; i < old.length; i++) {
         replacedLesson += old[i];
@@ -76,26 +87,29 @@ function pointerDisplay() {
 }
 
 startBtn.addEventListener("click", () => {
-    if(lesson >= 0 && lesson + 1 != completedLessons){
+    if (lesson >= 0 && lesson + 1 != completedLessons) {
         alert("Complete This Lesson")
         return;
     }
     if (currentExercise >= 0) {
         lesson++;
-    }else{
+    } else {
         lesson = 0;
     }
-    if(lesson >= 12){
+    if (lesson >= 12) {
         lessonText.textContent = "The End!"
         return;
     }
+    countWords()
+    speedText.textContent = "0";
+    callSpeedTimer = false;
+
     currentExercise = lesson;
     char = 0;
     value = "";
     replacedLesson = "";
     newLessonChanges = "";
     writtenLetters.textContent = "";
-    score.textContent = 0;
 
     lessonText.textContent = exercises[lesson];
     currentLesson.textContent = "Lesson_" + (lesson + 1);
@@ -105,3 +119,29 @@ startBtn.addEventListener("click", () => {
     pointerTimer = setInterval(pointerDisplay, 500);
     startBtn.textContent = "New Lesson"
 });
+
+function sTimer() {
+    sec++;
+
+}
+
+function countWords() {
+
+    for (let i = 0; i < exercises[lesson].length; i++) {
+        if (exercises[lesson][i] === " ") {
+            words++;
+        }
+    }
+}
+
+function countSpeed() {
+    console.log("speed");
+    console.log("countspeed");
+    let userSpeed = (60 * words) / sec;
+    console.log(words + " words");
+    console.log(sec + " secs");
+    speedText.textContent = Math.floor(userSpeed);
+    words = 1;
+    sec = 0;
+    clearInterval(speedTimer);
+}
