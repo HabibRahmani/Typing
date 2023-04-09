@@ -1,0 +1,16 @@
+:root {
+    --main-color: #1F2833;
+    --text-color: #c5c6c7;
+    --title-color: #66FCF7;
+    --border-color: #45A29E;
+    --box-color: #0B0C10;
+    --sidebar: #2a3746;
+    --sidebar-hover:#324253;
+}
+
+.games{
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

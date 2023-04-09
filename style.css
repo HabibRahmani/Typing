@@ -63,6 +63,10 @@
     color: var(--text-color);
 }
 
+.links{
+    font-size: 50px;
+}
+
 .start-btn {
     padding-top: 70px;
 }
