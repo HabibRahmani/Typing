@@ -5,12 +5,34 @@
     --border-color: #45A29E;
     --box-color: #0B0C10;
     --sidebar: #2a3746;
-    --sidebar-hover:#324253;
+    --sidebar-hover: #324253;
 }
 
-.games{
+.games {
     margin: 0;
     padding: 0;
     background-color: var(--main-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.user {
+    position: absolute;
+    top: 250px;
+    height: 50px;
+    width: 50px;
+    background: var(--border-color);
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding-top: 250px;
+}
+
+.box {
+    height: 50px;
+    width: 50px;
+    background: var(--text-color);
+    text-align: center;
 }
