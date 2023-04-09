@@ -267,7 +267,8 @@
 }
 
 .pointer {
-    position: fixed;
+    position: absolute;
+    z-index: 10;
     color: white;
     font-family: 'Times New Roman', Times, serif;
     visibility: hidden;
