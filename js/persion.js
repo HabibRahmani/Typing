@@ -108,7 +108,7 @@ startBtn.addEventListener("click", () => {
     writtenLetters.textContent = "";
 
     lessonText.textContent = persionExercises[lesson];
-    currentLesson.textContent = "Lesson_" + (lesson + 1);
+    currentLesson.textContent = (lesson + 1)+ "_درس";
     writtenLetters.textContent = '';
     pointer.style.visibility = "visible";
     clearInterval(pointerTimer);
