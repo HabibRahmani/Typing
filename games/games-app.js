@@ -14,13 +14,10 @@ function callLetters() {
     boxesContainer.innerHTML = "";
     addLetters(words[currentLesson]);
 }
-
 callLetters()
-
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
-
     if (currentLetter < boxes.length) {
         written();
     }
@@ -56,3 +53,8 @@ function addLetters(words) {
     boxes = document.querySelectorAll('.box');
 
 }
+
+function wordPosition (){
+}
+let random = Math.floor(Math.random() * 765 );
+boxesContainer.style.left = random+"px";   
