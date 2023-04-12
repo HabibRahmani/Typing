@@ -1,7 +1,7 @@
 const boxesContainer = document.querySelector('.boxes');
 
 
-const words = ["afghanistan", "herat", "home", "school", "typing","afghanistan", "herat", "home", "school", "typing"]
+const words = ["afghanistan", "herat", "home", "school", "typing", "afghanistan", "herat", "home", "school", "typing"]
 
 let value;
 let currentLetter = 0;
@@ -9,6 +9,8 @@ let currentLesson = 0;
 let boxes;
 let topAb = 0;
 let leftAb;
+let positionTimer;
+
 
 function callLetters() {
     boxesContainer.innerHTML = "";
@@ -32,6 +34,10 @@ function written() {
             currentLetter = 0;
             callLetters();
 
+            randomNumber()
+            topAb = 0;
+            clearInterval(positionTimer);
+            positionTimer = setInterval(wordPosition, 30);
 
             return;
         }
@@ -54,7 +60,19 @@ function addLetters(words) {
 
 }
 
-function wordPosition (){
+randomNumber();
+positionTimer = setInterval(wordPosition, 30);
+
+function wordPosition() {
+    boxesContainer.style.left = leftAb + "px";
+    boxesContainer.style.top = topAb + "px";
+    topAb += 3;
+    if(topAb > 550){
+        topAb = 0;
+    }
 }
-let random = Math.floor(Math.random() * 765 );
-boxesContainer.style.left = random+"px";   
+
+function randomNumber() {
+    let random = Math.floor(Math.random() * 765);
+    leftAb = random;
+}
