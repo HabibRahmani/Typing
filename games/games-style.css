@@ -16,10 +16,10 @@
 }
 
 .boxes {
+    position: absolute;
     display: flex;
     justify-content: center;
     gap: 5px;
-    padding-top: 250px;
 }
 
 .box {

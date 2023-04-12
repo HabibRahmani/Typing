@@ -1,12 +1,14 @@
 const boxesContainer = document.querySelector('.boxes');
 
 
-const words = ["afghanistan", "herat", "home", "school", "typing"]
+const words = ["afghanistan", "herat", "home", "school", "typing","afghanistan", "herat", "home", "school", "typing"]
 
 let value;
 let currentLetter = 0;
 let currentLesson = 0;
 let boxes;
+let topAb = 0;
+let leftAb;
 
 function callLetters() {
     boxesContainer.innerHTML = "";
@@ -32,6 +34,8 @@ function written() {
             currentLesson++;
             currentLetter = 0;
             callLetters();
+
+
             return;
         }
         currentLetter++;
