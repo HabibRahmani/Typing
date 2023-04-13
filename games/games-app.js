@@ -26,13 +26,13 @@ document.addEventListener('keypress', (e) => {
 })
 
 function written() {
-    
+
     if (boxes[currentLetter].textContent === value) {
         boxes[currentLetter].style.backgroundColor = "#45A29E";
 
         if (currentLetter + 1 === words[currentWord].length) {
             currentWord++;
-            if(currentWord === words.length){
+            if (currentWord === words.length) {
                 finish()
                 return;
             }
@@ -73,7 +73,7 @@ function wordPosition() {
     boxesContainer.style.left = leftAb + "px";
     boxesContainer.style.top = topAb + "px";
     topAb += 3;
-    if(topAb > 550){
+    if (topAb > 550) {
         topAb = 0;
     }
 }
@@ -83,11 +83,11 @@ function randomNumber() {
     leftAb = random;
 }
 
-function finish (){
+function finish() {
     boxesContainer.innerHTML = "";
     boxesContainer.textContent = "THE END"
     topAb = 0;
     leftAb = 600;
-    boxesContainer.style.color = "white";
-    boxesContainer.style.fontSize = 30+"px";
+    boxesContainer.style.color = "#c5c6c7";
+    boxesContainer.style.fontSize = 30 + "px";
 }
