@@ -1,11 +1,11 @@
 const boxesContainer = document.querySelector('.boxes');
 
 
-const words = ["afghanistan", "herat", "home", "school", "typing", "afghanistan", "herat", "home", "school", "typing"]
+const words = ["book", "help", "home", "school", "typing", "note book", "pen", "box", "ant", "desk"]
 
 let value;
 let currentLetter = 0;
-let currentLesson = 0;
+let currentWord = 0;
 let boxes;
 let topAb = 0;
 let leftAb;
@@ -14,7 +14,7 @@ let positionTimer;
 
 function callLetters() {
     boxesContainer.innerHTML = "";
-    addLetters(words[currentLesson]);
+    addLetters(words[currentWord]);
 }
 callLetters()
 
@@ -26,11 +26,17 @@ document.addEventListener('keypress', (e) => {
 })
 
 function written() {
+    
     if (boxes[currentLetter].textContent === value) {
         boxes[currentLetter].style.backgroundColor = "#45A29E";
 
-        if (currentLetter + 1 === words[currentLesson].length) {
-            currentLesson++;
+        if (currentLetter + 1 === words[currentWord].length) {
+            currentWord++;
+            if(currentWord === words.length){
+                finish()
+                return;
+            }
+
             currentLetter = 0;
             callLetters();
 
@@ -75,4 +81,13 @@ function wordPosition() {
 function randomNumber() {
     let random = Math.floor(Math.random() * 765);
     leftAb = random;
+}
+
+function finish (){
+    boxesContainer.innerHTML = "";
+    boxesContainer.textContent = "THE END"
+    topAb = 0;
+    leftAb = 600;
+    boxesContainer.style.color = "white";
+    boxesContainer.style.fontSize = 30+"px";
 }
