@@ -15,6 +15,28 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.games-btn {
+    padding-top: 250px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.games-btn button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: unset;
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    font-size: 20px;
+}
+
+.games-btn button:hover {
+    transition: 0.3s;
+    color: var(--title-color);
+}
+
 .boxes {
     position: absolute;
     display: flex;
@@ -29,13 +51,14 @@
     background: var(--text-color);
     text-align: center;
 }
+
 .box h1 {
     font-size: 16px;
     padding-top: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.back{
+.back {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -47,6 +70,7 @@
     border: 2px solid var(--border-color);
     font-size: 20px;
 }
+
 .back:hover {
     transition: 0.3s;
     color: var(--title-color);
