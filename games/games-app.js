@@ -72,8 +72,8 @@ positionTimer = setInterval(wordPosition, 30);
 function wordPosition() {
     boxesContainer.style.left = leftAb + "px";
     boxesContainer.style.top = topAb + "px";
-    topAb += 3;
-    if (topAb > 550) {
+    topAb += 5;
+    if (topAb > 600) {
         topAb = 0;
     }
 }
