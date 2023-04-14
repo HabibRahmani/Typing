@@ -75,3 +75,51 @@
     transition: 0.3s;
     color: var(--title-color);
 }
+/* ######### second game ########*/
+.game-2-container {
+    padding-left: 20%;
+    padding-top: 40px;
+}
+
+.car-game {
+    width: 800px;
+    height: 550px;
+    background-color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.street {
+    width: 750px;
+    height: 200px;
+    background-color: #45A29E;
+}
+
+.line {
+    position: absolute;
+    top: 135px;
+    width: 750px;
+    height: 1px;
+    background-color: var(--box-color);
+}
+
+.car {
+    position: absolute;
+    top: 115px;
+    left: 298px;
+    width: 30px;
+    height: 20px;
+    background-color: var(--box-color);
+    border-radius: 5px;
+}
+.speed-count {
+    width: 750px;
+    height: 100px;
+}
+.topic {
+    width: 750px;
+    height: 250px;
+    text-align: center;
+    background-color: #45A29E;
+}
