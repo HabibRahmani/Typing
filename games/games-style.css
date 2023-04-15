@@ -115,6 +115,7 @@
 .speed-count {
     width: 750px;
     height: 100px;
+    text-align: center;
 }
 .topic {
     width: 750px;
