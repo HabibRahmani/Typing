@@ -102,7 +102,7 @@
     height: 1px;
     background-color: var(--box-color);
 }
-
+/* 298    1018  720 */
 .car {
     position: absolute;
     top: 115px;
@@ -114,12 +114,17 @@
 }
 .speed-count {
     width: 750px;
-    height: 100px;
+    height: 150px;
     text-align: center;
 }
 .topic {
     width: 750px;
-    height: 250px;
-    text-align: center;
-    background-color: #45A29E;
+    height: 200px;
+    text-align: justify;
+    font-size: 20px;
+    padding: 20px;
+    line-height: 160%;
+}
+.letter {
+    padding: 3px 0px;
 }
