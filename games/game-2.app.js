@@ -68,5 +68,5 @@ function carPosition() {
 function kmPerHour (){
     startTime++;
     let userSpeed = (60 * words) / startTime;
-    speedText.textContent = Math.floor(userSpeed)+ "km per hour";
+    speedText.textContent = Math.ceil(userSpeed)+ "km per hour";
 }

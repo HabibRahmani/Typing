@@ -111,6 +111,7 @@
     height: 20px;
     background-color: var(--box-color);
     border-radius: 5px;
+    transition: 0.3s;
 }
 .speed-count {
     width: 750px;
