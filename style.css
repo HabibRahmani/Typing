@@ -40,6 +40,12 @@ a {
     text-decoration: none;
     color: var(--text-color);
     letter-spacing: 10px;
+    transition: 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--title-color);
 }
 
 .links{
@@ -54,8 +60,11 @@ a {
 
 /*############## Languages Page ###############*/
 .languages {
+    margin: 0;
+    padding: 0;
     background-color: var(--main-color);
-    color: var(--text-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
 }
 
 .back{
@@ -74,59 +83,8 @@ a {
     transition: 0.3s;
     color: var(--title-color);
 }
-.lang-title {
-    text-align: center; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: var(--title-color);
-    font-size: 25px;
-}
 
-.lang-title p {
-    font-size: 14px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: var(--text-color);
-    width: 60%;
-    padding-left: 20%;
-}
-.lang-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    padding-top: 100px;
-}
 
-.english{
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: unset;
-    color: var(--text-color);
-    border-radius: 5px;
-    border: 2px solid var(--border-color);
-    font-size: 20px;
-}
-.english:hover {
-    transition: 0.3s;
-    color: var(--title-color);
-}
-.person{
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: unset;
-    color: var(--text-color);
-    border-radius: 5px;
-    border: 2px solid var(--border-color);
-    font-size: 20px;
-}
-.person:hover {
-    transition: 0.3s;
-    color: var(--title-color);
-}
-
-@media only screen and (max-width: 520px) {
-    .lang-buttons {
-        padding-top: 50px;
-    }
-}
 /*######## English Page ########*/
 .english-page {
     background-color: var(--main-color);
