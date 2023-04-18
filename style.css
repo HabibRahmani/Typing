@@ -47,6 +47,7 @@
 .links a:hover {
     text-decoration: underline;
     color: var(--title-color);
+    font-size: 50px;
 }
 
 .links{
@@ -76,6 +77,7 @@
     cursor: pointer;
     color: var(--title-color);
     font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .back-button a:hover {
     transition: 0.3s;
