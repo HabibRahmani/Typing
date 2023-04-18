@@ -34,16 +34,17 @@
 .title-name h1 {
     font-size: 40px;
     letter-spacing: 10px;
+    color: var(--title-color);
 }
 
-a {
+.links a {
     text-decoration: none;
     color: var(--text-color);
     letter-spacing: 10px;
     transition: 0.3s;
 }
 
-a:hover {
+.links a:hover {
     text-decoration: underline;
     color: var(--title-color);
 }
@@ -67,23 +68,19 @@ a:hover {
     text-align: center;
 }
 
-.back{
+.back-button a{
     position: absolute;
     bottom: 20px;
     right: 20px;
+    text-decoration: none;
     cursor: pointer;
-    padding: 10px 20px;
-    background-color: unset;
-    color: var(--text-color);
-    border-radius: 5px;
-    border: 2px solid var(--border-color);
-    font-size: 20px;
-}
-.back:hover {
-    transition: 0.3s;
     color: var(--title-color);
+    font-size: 24px;
 }
-
+.back-button a:hover {
+    transition: 0.3s;
+    color: var(--text-color);
+}
 
 /*######## English Page ########*/
 .english-page {
