@@ -41,7 +41,7 @@ document.addEventListener('keypress', (e) => {
     if (lesson >= 0 && char >= 0) {
         input();
         pointer.style.visibility = "visible";
-        if(callSpeedTimer === false){
+        if (callSpeedTimer === false) {
             speedTimer = setInterval(sTimer, 1000);
             callSpeedTimer = true;
         }
@@ -65,6 +65,8 @@ function replaceChar(old, newLesson) {
     if (newLesson.length === old.length) {
         completedLessons++;
         countSpeed();
+        startLessons()
+
     }
     for (let i = newLesson.length; i < old.length; i++) {
         replacedLesson += old[i];
@@ -82,7 +84,9 @@ function pointerDisplay() {
     }
 }
 
-startBtn.addEventListener("click", () => {
+startLessons()
+
+function startLessons() {
     if (lesson >= 0 && lesson + 1 != completedLessons) {
         alert("این درس را تکمیل کنید")
         return;
@@ -108,31 +112,29 @@ startBtn.addEventListener("click", () => {
     writtenLetters.textContent = "";
 
     lessonText.textContent = persionExercises[lesson];
-    currentLesson.textContent = (lesson + 1)+ "_درس";
     writtenLetters.textContent = '';
     pointer.style.visibility = "visible";
     clearInterval(pointerTimer);
     pointerTimer = setInterval(pointerDisplay, 500);
-    startBtn.textContent = "درس جدید"
-});
+};
 
-function sTimer (){
+function sTimer() {
     sec++;
 }
 
-function countWords (){
-    for(let i = 0; i < persionExercises[lesson].length; i++){
-        if(persionExercises[lesson][i] === " "){
+function countWords() {
+    for (let i = 0; i < persionExercises[lesson].length; i++) {
+        if (persionExercises[lesson][i] === " ") {
             words++;
         }
     }
 }
 
-function countSpeed (){
+function countSpeed() {
     console.log("countspeed");
     let userSpeed = (60 * words) / sec;
-    console.log(words+" words");
-    console.log(sec+" secs");
+    console.log(words + " words");
+    console.log(sec + " secs");
     speedText.textContent = Math.floor(userSpeed);
     words = 1;
     sec = 0;
