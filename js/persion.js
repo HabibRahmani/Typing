@@ -117,7 +117,6 @@ function startLessons() {
     clearInterval(pointerTimer);
     pointerTimer = setInterval(pointerDisplay, 500);
 };
-
 function sTimer() {
     sec++;
 }
