@@ -11,9 +11,8 @@
 .games {
     margin: 0;
     padding: 0;
-    background: url(../images/photo_2023-04-28_15-02-32.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: url(../images/photo_2023-04-28_15-02-32.jpg) no-repeat fixed center;
+    background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
