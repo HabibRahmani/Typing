@@ -22,8 +22,13 @@
 /* ########## Main Page */
 .main-page {
     margin: 0;
-    padding: 0;
-    background-color: var(--main-color);
+    padding-top: 0;
+    height: 100%;
+    
+    background: url(./images/wp3003150.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
