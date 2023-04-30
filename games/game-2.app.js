@@ -1,10 +1,12 @@
 const topicText = document.querySelector('.topic-text');
+const container = document.querySelector('.game-2-container');
 let car = document.querySelector('.car');
 let speedText = document.querySelector('.speed-text');
 
-const paragraphs = ["Black hole is a region of spacetime where gravity is so strong that nothing, including light or other electromagnetic waves, has enough energy to escape its event horizon. The theory of general relativity predicts that a sufficiently compact mass can deform spacetime to form a black hole.",
-    "Galaxy is a system of stars, stellar remnants, interstellar gas, dust, dark matter, bound together by gravity. The word is derived from the Greek galaxias, literally 'milky', a reference to the Milky Way galaxy that contains the Solar System.",
-    "Darwinism is a theory of biological evolution developed by the English naturalist Charles Darwin and others, stating that all species of organisms arise and develop through the natural selection of small, inherited variations that increase the individual's ability to compete, survive, and reproduce.",
+
+const paragraphs = ["Planet Earth is also known as the ‘Blue Planet’ because of the two-thirds of its surface is covered by saltwater oceans.It is the fifth-largest planet in the solar system. It is the only planet in our solar system with liquid water on the surface.",
+    "monib",
+    "ahmad",
 ];
 
 let value, letters;
@@ -13,7 +15,9 @@ let carLeft = 298;
 let carMove;
 let startTime = 0;
 let startTimer;
-let words = 1;
+let characters = 0;
+let paragraph;
+let writtenCharacters = 0;
 
 
 
@@ -22,13 +26,16 @@ document.addEventListener('keypress', (e) => {
     value = e.key;
     written();
 
-    startTimer = setInterval(kmPerHour,1000)
+    startTimer = setInterval(kmPerHour, 1000)
 })
 
 
 function written() {
     if (letters[currentSpan].textContent === value) {
-        
+        writtenCharacters++;
+        if (writtenCharacters === paragraph.length) {
+            container.style.display = 'none';
+        }
         letters[currentSpan].style.backgroundColor = "#45A29E";
         currentSpan++;
         carPosition()
@@ -40,14 +47,14 @@ function randomParagraph() {
     let random = Math.floor(Math.random() * paragraphs.length);
     changeTopic(paragraphs[random])
     carMove = 720 / paragraphs[random].length;
+    paragraph = paragraphs[random];
 }
 randomParagraph();
 
 function changeTopic(topic) {
     for (let i = 0; i < topic.length; i++) {
-        if(topic[i] === " "){
-            words++;
-        }
+        characters++;
+
         const span = document.createElement('span');
         span.classList.add('letter')
         span.textContent = topic[i];
@@ -59,14 +66,14 @@ function changeTopic(topic) {
 function carPosition() {
     carLeft += carMove;
     car.style.left = carLeft + "px";
-    if(carLeft === 780){
+    if (carLeft === 780) {
         clearInterval(startTimer)
     }
 }
 
 
-function kmPerHour (){
+function kmPerHour() {
     startTime++;
-    let userSpeed = (60 * words) / startTime;
-    speedText.textContent = Math.ceil(userSpeed)+ "km per hour";
+    let userSpeed = (60 * characters) / startTime;
+    speedText.textContent = Math.ceil(userSpeed) + "km per hour";
 }

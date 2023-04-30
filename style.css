@@ -190,8 +190,14 @@
 }
 
 .computer-monitor{
-    background: url(./icons/monitor-computer.svg) no-repeat fixed center;
-    background-size: 100%;
+   width: 100%;
+   height: 100%;
+}
+
+.monitor{
+    background: url(./icons/monitor-computer.svg) no-repeat fixed;
+    width: 730px;
+    height: 630px;
 }
 
 .persionExercise p {

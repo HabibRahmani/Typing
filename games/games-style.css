@@ -8,7 +8,7 @@
     --sidebar-hover: #324253;
 }
 
-.games {
+.games-main-page {
     margin: 0;
     padding: 0;
     background: url(../images/photo_2023-04-28_15-02-32.jpg) no-repeat fixed center;
@@ -37,7 +37,14 @@
     transition: 0.3s;
     color: var(--title-color);
 }
-
+/* /////////////////// */
+.first-game {
+    margin: 0;
+    padding: 0;
+    background: url(../images/birds.jpg) no-repeat fixed center;
+    background-size: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .boxes {
     position: absolute;
     display: flex;
@@ -77,6 +84,13 @@
     color: var(--title-color);
 }
 /* ######### second game ########*/
+.second-game {
+    margin: 0;
+    padding: 0;
+    background: url(../images/wp5567675.jpg) no-repeat fixed center;
+    background-size: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .game-2-container {
     padding-left: 20%;
     padding-top: 40px;
@@ -105,13 +119,13 @@
 }
 /* 298    1018  720 */
 .car {
+    background: url(../icons/race-car-1-svgrepo-com.svg) no-repeat center;
     position: absolute;
+    width: 37px;
+    height: 20px;
     top: 115px;
     left: 298px;
-    width: 30px;
-    height: 20px;
-    background-color: var(--box-color);
-    border-radius: 5px;
+    background-size: 40px;
     transition: 0.3s;
 }
 .speed-count {
