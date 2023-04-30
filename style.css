@@ -104,19 +104,8 @@
 
 /*######## English Page ########*/
 .english-page {
-    background-color: var(--main-color);
-}
-
-.englishExercise{
-    position: absolute;
-    right: 300px;
-    top: 150px;
-    width: 50%;
-    color: var(--text-color);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 20px;
+    background: url(images/2820202.webp)no-repeat fixed center;
+    background-size: 100%;
 }
 
 
@@ -127,26 +116,6 @@
     line-height: 150%;
 }
 
-.englishLessonsSidebar{
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-right: 1px solid var(--border-color);
-}
-
-.exersice-title{
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: var(--title-color);
-    font-size: 20px;
-}
 
 .lessons h1 {
     padding: 10px;
@@ -155,19 +124,6 @@
     color: var(--border-color);
 }
 
-.sidebarTitle{
-    text-align: center;
-    font-size: 12px;
-    color: var(--title-color);
-}
-
-
-.englishLessonsSidebar div{
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    margin-top: -10px;
-}
 
 .lessons div:hover {
     transition: 0.5s;
@@ -216,14 +172,13 @@
 
 /*######## Person Page ########*/
 .persian-page {
-    background-color: var(--main-color);
+    background: url(images/2820202.webp)no-repeat fixed center;
+    background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .persionExercise{
     position: absolute;
-    background: url(./monitor-lcd-svgrepo-com\ \(1\).svg) no-repeat fixed center;
-    background-size: 600px;
     right: 300px;
     top: 150px;
     width: 50%;
@@ -234,6 +189,10 @@
     padding: 20px;
 }
 
+.computer-monitor{
+    background: url(./icons/monitor-computer.svg) no-repeat fixed center;
+    background-size: 100%;
+}
 
 .persionExercise p {
     padding: 10px; 
