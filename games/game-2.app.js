@@ -4,7 +4,7 @@ let car = document.querySelector('.car');
 let speedText = document.querySelector('.speed-text');
 
 
-const paragraphs = ["Planet Earth is also known as the ‘Blue Planet’ because of the two-thirds of its surface is covered by saltwater oceans.It is the fifth-largest planet in the solar system. It is the only planet in our solar system with liquid water on the surface.",
+const paragraphs = ["Planet Earth is also known as the 'Blue Planet' because of the two-thirds of its surface is covered by saltwater oceans.It is the fifth-largest planet in the solar system. It is the only planet in our solar system with liquid water on the surface.",
     "monib",
     "ahmad",
 ];

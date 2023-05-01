@@ -66,22 +66,19 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.back {
+.games-back-btn a{
     position: absolute;
     bottom: 20px;
     right: 20px;
+    text-decoration: none;
     cursor: pointer;
-    padding: 10px 20px;
-    background-color: unset;
     color: var(--text-color);
-    border-radius: 5px;
-    border: 2px solid var(--border-color);
-    font-size: 20px;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-.back:hover {
+.games-back-btn a:hover {
     transition: 0.3s;
-    color: var(--title-color);
+    color: var(--sidebar);
 }
 /* ######### second game ########*/
 .second-game {
@@ -123,7 +120,7 @@
     position: absolute;
     width: 37px;
     height: 20px;
-    top: 115px;
+    top: 118px;
     left: 298px;
     background-size: 40px;
     transition: 0.3s;
