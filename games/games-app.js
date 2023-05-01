@@ -1,5 +1,5 @@
 const boxesContainer = document.querySelector('.boxes');
-
+const hearts = document.querySelector('.hearts');
 
 const words = ["book", "help", "home", "school", "typing", "note book", "pen", "box", "ant", "desk"]
 
@@ -25,6 +25,18 @@ document.addEventListener('keypress', (e) => {
     }
 })
 
+function addHearts (){
+    for(let i = 0; i < 3; i++){
+        console.log("heart added");
+        const heart = document.createElement('img');
+        heart.classList.add('heart');
+        heart.innerHTML = '<img src="/icons/blank-heart.svg">';
+        // /^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        hearts.appendChild(heart)
+    }
+}
+addHearts()
+
 function written() {
 
     if (boxes[currentLetter].textContent === value) {
@@ -41,9 +53,9 @@ function written() {
             callLetters();
 
             randomNumber()
-            topAb = 0;
             clearInterval(positionTimer);
             positionTimer = setInterval(wordPosition, 30);
+            topAb = 0;
 
             return;
         }
@@ -73,8 +85,15 @@ function wordPosition() {
     boxesContainer.style.left = leftAb + "px";
     boxesContainer.style.top = topAb + "px";
     topAb += 5;
-    if (topAb > 600) {
+    if (topAb > 670) {
         topAb = 0;
+        currentWord++;
+        currentLetter = 0;
+        callLetters();
+        randomNumber()
+        clearInterval(positionTimer);
+        positionTimer = setInterval(wordPosition, 30);
+
     }
 }
 

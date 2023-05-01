@@ -143,6 +143,15 @@
     left: 890px;
     background-size: 40px;
 }
+.winner {
+    background: url(../icons/trophy-1st.svg) no-repeat center;
+    position: absolute;
+    width: 37px;
+    height: 30px;
+    top: 105px;
+    left: 1020px;
+    background-size: 40px;
+}
 
 .line {
     position: absolute;
