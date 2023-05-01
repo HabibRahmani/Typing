@@ -107,6 +107,43 @@
     height: 200px;
 }
 
+.light-2 {
+    background: url(../icons/street-light-2.svg) no-repeat center;
+    position: absolute;
+    width: 37px;
+    height: 50px;
+    top: 91px;
+    left: 294px;
+    background-size: 40px;
+}
+.light-1 {
+    background: url(../icons/street-light.svg) no-repeat center;
+    position: absolute;
+    width: 37px;
+    height: 50px;
+    top: 90px;
+    left: 690px;
+    background-size: 40px;
+}
+.tree-1 {
+    background: url(../icons/oak-tree.svg) no-repeat center;
+    position: absolute;
+    width: 37px;
+    height: 50px;
+    top: 93px;
+    left: 490px;
+    background-size: 40px;
+}
+.tree-2 {
+    background: url(../icons/coconut-tree.svg) no-repeat center;
+    position: absolute;
+    width: 37px;
+    height: 50px;
+    top: 90px;
+    left: 890px;
+    background-size: 40px;
+}
+
 .line {
     position: absolute;
     top: 135px;
