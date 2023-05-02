@@ -116,22 +116,14 @@
     left: 294px;
     background-size: 40px;
 }
-.light-1 {
-    background: url(../icons/street-light.svg) no-repeat center;
-    position: absolute;
-    width: 37px;
-    height: 50px;
-    top: 90px;
-    left: 690px;
-    background-size: 40px;
-}
+
 .tree-1 {
     background: url(../icons/oak-tree.svg) no-repeat center;
     position: absolute;
     width: 37px;
     height: 50px;
     top: 93px;
-    left: 490px;
+    left: 590px;
     background-size: 40px;
 }
 .tree-2 {
@@ -141,6 +133,24 @@
     height: 50px;
     top: 90px;
     left: 890px;
+    background-size: 40px;
+}
+.cloud {
+    background: url(../icons/cloud-2.svg) no-repeat center;
+    position: absolute;
+    width: 37px;
+    height: 50px;
+    top: 50px;
+    left: 770px;
+    background-size: 40px;
+}
+.cloud-2 {
+    background: url(../icons/cloud-2.svg) no-repeat center;
+    position: absolute;
+    width: 37px;
+    height: 50px;
+    top: 50px;
+    left: 470px;
     background-size: 40px;
 }
 .winner {

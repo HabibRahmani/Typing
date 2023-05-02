@@ -85,7 +85,7 @@ function wordPosition() {
     boxesContainer.style.left = leftAb + "px";
     boxesContainer.style.top = topAb + "px";
     topAb += 5;
-    if (topAb > 670) {
+    if (topAb > 680) {
         topAb = 0;
         currentWord++;
         currentLetter = 0;
