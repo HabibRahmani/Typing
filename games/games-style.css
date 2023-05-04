@@ -193,7 +193,52 @@
     font-size: 20px;
     padding: 20px;
     line-height: 160%;
-}
+}   
 .letter {
     padding: 3px 0px;
+}
+/* ##### Third Game ##### */
+
+.third-game {
+    background: #1F2833;
+}
+
+.ghost-game {
+    background: #c5c6c7;
+    width: 800px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.third-game .container {
+    padding-left: 20%;
+    padding-top: 40px;
+}
+
+.scary-road{
+    position: absolute;
+    top: 330px;
+    width: 780px;
+    height: 2px;
+    background: black;
+}
+
+.ghost{
+    background: url(../icons/ghost-1.svg) no-repeat center;
+    position: absolute;
+    width: 40px;
+    height: 300px;
+    top: 160px;
+    left: 285px;
+    background-size: 40px;
+}
+.human{
+    background: url(../icons/walking-human.svg) no-repeat center;
+    position: absolute;
+    width: 40px;
+    height: 300px;
+    top: 160px;
+    left: 400px;
+    background-size: 40px;
 }
