@@ -1,24 +1,23 @@
 const doors = document.querySelector('.doors');
 const human = document.querySelector('.human');
+const ghost = document.querySelector('.ghost');
 
-let movmentTimer;
 
-        
+// ############ Scary Man ############# //
+let runnigHumanTimer;
 
-let a = true;
- movmentTimer = setInterval(movment, 150);
+let runnigHuman = true;
+runnigHumanTimer = setInterval(run, 150);
 
-function movment (){
-    console.log("move");
-
-    if(a){
+function run (){
+    if(runnigHuman){
         human.style.backgroundImage = "url(../icons/fast-running-human.svg) "
-        a = false;
-        console.log("run");
+        ghost.style.top = "158px"
+        runnigHuman = false;
     }else{
         human.style.backgroundImage = "url(../icons/walking-human.svg) "
-        a = true;
-        console.log("walk");
+        ghost.style.top = "160px"
+        runnigHuman = true;
     }
-
 }
+// ######################################

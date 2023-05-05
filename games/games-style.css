@@ -245,3 +245,15 @@
     left: 400px;
     background-size: 40px;
 }
+.door{
+    background-image: url(../icons/opened-door.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.5s;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 290px;
+    left: 500px;
+    background-size: 40px;
+}
