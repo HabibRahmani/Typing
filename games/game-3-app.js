@@ -25,13 +25,15 @@ function run (){
 let addedDoors;
 let doorTimer;
 let startPoint = 1030;
+let addingTime = 0;
 
 
 
- doorTimer = setInterval(addDoor, 100);
 
 
 
+addDoor()
+doorTimer = setInterval(doorsPosition, 100);
 
 function addDoor (leftPosition){
     let door = document.createElement('div');
@@ -39,17 +41,25 @@ function addDoor (leftPosition){
     door.style.left = startPoint+"px"
     doors.appendChild(door);
 
-    doorsPosition()
+
 }
-
 function doorsPosition (){
-    addedDoors = document.querySelectorAll('.doors');
 
+    // if(addingTime % 10 === 0){
+    //     addDoor()
+    // }
+    // addingTime++
+    
+    addedDoors = document.querySelectorAll('.door');
 
+     
+    for(let i = addedDoors.length - 1; i >= 0 ; i--){
 
-    for(let i = addedDoors.length; i >= 0 ; i++){
-     addedDoors[i].style.left = (1030 - (i * 10)) +"px";
+        if(i === 6){
+            addedDoors[i].remove()
+        }
+        
+        addedDoors[i].style.left = (1030 - (i * 10)) +"px";
     }
-
 }
 

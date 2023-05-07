@@ -227,6 +227,7 @@
 .ghost{
     background: url(../icons/ghost-1.svg) no-repeat center;
     position: absolute;
+    transition: 0.4s;
     width: 40px;
     height: 300px;
     top: 160px;
