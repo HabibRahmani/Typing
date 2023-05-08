@@ -257,3 +257,16 @@
     top: 290px;
     background-size: 40px;
 }
+
+.word{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin-top: -25px;
+}
+
+.letter {
+    padding: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
