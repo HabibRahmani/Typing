@@ -263,6 +263,23 @@
     align-items: center;
     text-align: center;
 }
+.open-door{
+    background-image: url(../icons/opened-door.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.5s;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 290px;
+    background-size: 40px;
+
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
 
 .letter {
     padding: 3px;

@@ -8,16 +8,17 @@ const words = ["book", "table", "desk", "pen", "car", "home", "picture", "window
 // ######### Key Press ########3
 let value;
 let currentLetter = 0;
+let currentWord = 0;
 let currentWordLenght;
 
 
-document.addEventListener('keypress', (e) => {
+document.addEventListener('keypress', keyPress);
+
+function keyPress (e){
     value = e.key;
 
     checkWrittenLetters()
-
-})
-
+}
 
 // ############ Scary Man ############# //
 let runnigHumanTimer;
@@ -42,6 +43,8 @@ let addedDoors;
 let doorTimer;
 let startPoint = 1030;
 let addingTime = 0;
+let firstDoor = true;
+let openedDoors;
 
 addDoor()
 doorTimer = setInterval(doorsPosition, 100);
@@ -51,6 +54,9 @@ function addDoor(leftPosition) {
     door.classList.add('door');
     door.style.left = startPoint + "px"
     doors.appendChild(door);
+    
+    addWord(door)
+    
 
 }
 function doorsPosition() {
@@ -61,23 +67,35 @@ function doorsPosition() {
     }
 
     addedDoors = document.querySelectorAll('.door');
+    openedDoors = document.querySelectorAll('.open-door');
 
 
     for (let i = addedDoors.length - 1; i >= 0; i--) {
 
         if (parseInt(addedDoors[i].style.left) < 250) {
             addedDoors[i].remove()
-
         }
 
         addedDoors[i].style.left = parseInt(addedDoors[i].style.left) - 10 + "px";
+        if(parseInt(addedDoors[i].style.left) === 400){
+            clearInterval(runnigHumanTimer)
+            clearInterval(doorTimer)
+            document.removeEventListener("keypress", keyPress)
+        }
+    }
+    for (let i = openedDoors.length - 1; i >= 0; i--) {
+
+        if (parseInt(openedDoors[i].style.left) < 250) {
+            openedDoors[i].remove()
+        }
+
+        openedDoors[i].style.left = parseInt(openedDoors[i].style.left) - 10 + "px";
     }
 }
 // ################ WORDS ##############
 
-
 function addWord(door) {
-    
+
     let randomWord = Math.floor(Math.random() * words.length);
 
     for (let i = 0; i < words[randomWord].length; i++) {
@@ -86,4 +104,25 @@ function addWord(door) {
         letter.textContent = words[randomWord][i];
         door.appendChild(letter);
     }
+}
+
+
+function checkWrittenLetters() {
+
+    addedDoors = document.querySelectorAll('.door');
+
+    let a = addedDoors[0].children.length;
+
+    if (value === addedDoors[0].children[currentLetter].textContent) {
+        addedDoors[0].children[currentLetter].style.backgroundColor = "blue";
+
+        currentLetter++;
+        if (currentLetter === a) {
+            currentLetter = 0;
+            addedDoors[0].classList.remove('door');
+            addedDoors[0].classList.add('open-door')
+           
+        }
+    }
+
 }
