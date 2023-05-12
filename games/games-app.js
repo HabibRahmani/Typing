@@ -1,5 +1,7 @@
 const boxesContainer = document.querySelector('.boxes');
 const hearts = document.querySelector('.hearts');
+const lostText = document.querySelector('.lostText');
+let heart;
 
 const words = ["book", "help", "home", "school", "typing", "note book", "pen", "box", "ant", "desk"]
 
@@ -25,17 +27,7 @@ document.addEventListener('keypress', (e) => {
     }
 })
 
-function addHearts (){
-    for(let i = 0; i < 3; i++){
-        console.log("heart added");
-        const heart = document.createElement('img');
-        heart.classList.add('heart');
-        heart.innerHTML = '<img src="/icons/blank-heart.svg">';
-        // /^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        hearts.appendChild(heart)
-    }
-}
-addHearts()
+
 
 function written() {
 
@@ -81,11 +73,23 @@ function addLetters(words) {
 randomNumber();
 positionTimer = setInterval(wordPosition, 30);
 
+let loseCount = 0;
 function wordPosition() {
     boxesContainer.style.left = leftAb + "px";
     boxesContainer.style.top = topAb + "px";
     topAb += 5;
     if (topAb > 680) {
+        heart = document.querySelectorAll('img')
+        heart[0].remove()
+        loseCount++;
+
+        if(loseCount === 3){
+            clearInterval(positionTimer);
+            lostText.textContent = "Game Over";
+            boxesContainer.innerHTML = "";
+            return;
+        }
+
         topAb = 0;
         currentWord++;
         currentLetter = 0;
