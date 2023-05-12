@@ -83,7 +83,7 @@ function wordPosition() {
         heart[0].remove()
         loseCount++;
 
-        if(loseCount === 3){
+        if (loseCount === 3) {
             clearInterval(positionTimer);
             lostText.textContent = "Game Over";
             boxesContainer.innerHTML = "";
@@ -107,10 +107,8 @@ function randomNumber() {
 }
 
 function finish() {
+    lostText.textContent = "You Win"
+    clearInterval(positionTimer);
     boxesContainer.innerHTML = "";
-    boxesContainer.textContent = "THE END"
-    topAb = 0;
-    leftAb = 600;
-    boxesContainer.style.color = "#c5c6c7";
-    boxesContainer.style.fontSize = 30 + "px";
+    return;
 }
