@@ -179,13 +179,17 @@
 
 .persionExercise{
     position: absolute;
-    right: 430px;
-    top: 90px;
+    right: 445px;
+    top: 120px;
     width: 45%;
     color: var(--text-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: 1px solid var(--border-color);
     border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row-reverse wrap;
+    row-gap: 5px;
 }
 
 .computer-monitor{
@@ -211,4 +215,9 @@
     line-height: 150%;
 }
 
-
+.letter {
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+    padding-top: 0px;
+}

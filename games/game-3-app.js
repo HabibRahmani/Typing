@@ -114,7 +114,7 @@ function checkWrittenLetters() {
     let a = addedDoors[0].children.length;
 
     if (value === addedDoors[0].children[currentLetter].textContent) {
-        addedDoors[0].children[currentLetter].style.backgroundColor = "blue";
+        addedDoors[0].children[currentLetter].style.backgroundColor = "rgb(88, 165, 189)";
 
         currentLetter++;
         if (currentLetter === a) {
