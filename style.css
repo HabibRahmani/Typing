@@ -131,14 +131,7 @@
 
 }
 
-.speed {
-    position: absolute;
-    top: 200px;
-    right: 50px;
-    font-size: 30px;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serifs;
-}
+
 
 .writtenLetters {
     color: #90c4f0;
@@ -208,11 +201,13 @@
 
 }
 
-.persionExercise p {
-    padding: 10px; 
-    font-size: 24px;
-    text-align: justify !important;
-    line-height: 150%;
+.speedInfo {
+    position: absolute;
+    top: 250px;
+    right: 220px;
+    font-size: 30px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .letter {

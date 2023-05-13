@@ -1,5 +1,5 @@
 const persionExercise = document.querySelector('.persionExercise');
-
+const speed = document.querySelector('.speed')
 
 const persionExercises = ["بتببتتبتبتببتتبتتبتبتتتتتتببتتبببتتتببتتببتبتبتتببتببتبت",
     "نینننینینننینیننینننینننیننینیننیننننیننیننیننیننینینیننینننینینننینن",
@@ -19,10 +19,19 @@ let value;
 let writtenTrueLetters = 0;
 let letters;
 let audio = new Audio("click1.mp3");
+let speedTimer;
+let sec;
+let words;
+let startSpeed = true;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
     checkForTrueWritten()
+    if(startSpeed){
+        speedTimer = setInterval(countSpeed , 1000)
+        startSpeed = false;
+    }
+
 })
 
 
@@ -36,6 +45,11 @@ function addLesson (){
         persionExercise.appendChild(letter);
     }
 
+    words = persionExercises[currentLesson].length / 3;
+    sec = 0;
+    speed.textContent = "0"
+    clearInterval(speedTimer)
+    startSpeed = true;
 }
 
 function checkForTrueWritten (){
@@ -55,6 +69,13 @@ function checkForTrueWritten (){
         audio.play();
     }
 
+}
 
+function countSpeed (){
+    if(sec > 1){
+        let userSpeed = (60 * words) / sec;
+        speed.textContent = Math.floor(userSpeed);
+    }
 
+    sec++;
 }
