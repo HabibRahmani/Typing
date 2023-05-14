@@ -17,26 +17,17 @@
 }
 
 .games-btn {
-    padding-top: 250px;
+    padding-top: 200px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 50px;
 }
 
-.games-btn button {
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: unset;
-    color: var(--text-color);
-    border-radius: 5px;
-    border: 2px solid var(--border-color);
-    font-size: 20px;
+.games-btn img {
+    width: 100px;
+    height: 100px;
 }
 
-.games-btn button:hover {
-    transition: 0.3s;
-    color: var(--title-color);
-}
 /* /////////////////// */
 .first-game {
     margin: 0;

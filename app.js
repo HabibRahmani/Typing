@@ -60,7 +60,7 @@ function checkForTrueWritten (){
 
     if(value === englishExercises[currentLesson][writtenTrueLetters]){
         letters = document.querySelectorAll('.letter');
-        letters[writtenTrueLetters].style.backgroundColor = "blue";
+        letters[writtenTrueLetters].style.backgroundColor = "#5294e6";
         writtenTrueLetters++;
         if(writtenTrueLetters === englishExercises[currentLesson].length){
             Exercises.innerHTML = ''

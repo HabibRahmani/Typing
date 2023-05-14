@@ -56,7 +56,7 @@ function checkForTrueWritten (){
 
     if(value === persionExercises[currentLesson][writtenTrueLetters]){
         letters = document.querySelectorAll('.letter');
-        letters[writtenTrueLetters].style.backgroundColor = "blue";
+        letters[writtenTrueLetters].style.backgroundColor = "#5294e6";
         writtenTrueLetters++;
         if(writtenTrueLetters === persionExercises[currentLesson].length){
             Exercises.innerHTML = ''

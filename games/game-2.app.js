@@ -5,8 +5,6 @@ let speedText = document.querySelector('.speed-text');
 
 
 const paragraphs = ["Planet Earth is also known as the 'Blue Planet' because of the two-thirds of its surface is covered by saltwater oceans.It is the fifth-largest planet in the solar system. It is the only planet in our solar system with liquid water on the surface.",
-    "monib",
-    "ahmad",
 ];
 
 let value, letters;
@@ -20,13 +18,16 @@ let paragraph;
 let writtenCharacters = 0;
 
 
-
+let startPressingKey = true;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
     written();
 
-    startTimer = setInterval(kmPerHour, 1000)
+    if(startPressingKey){
+        startTimer = setInterval(kmPerHour, 1000)
+        startPressingKey = false;
+    }
 })
 
 
@@ -73,7 +74,9 @@ function carPosition() {
 
 
 function kmPerHour() {
+    if(startTime > 1){
+        let userSpeed = (60 * (characters) / 3) / startTime;
+        speedText.textContent = Math.ceil(userSpeed) + "km per hour";    
+    }
     startTime++;
-    let userSpeed = (60 * characters) / startTime;
-    speedText.textContent = Math.ceil(userSpeed) + "km per hour";
 }
