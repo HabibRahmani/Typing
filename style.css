@@ -102,75 +102,15 @@
     color: var(--text-color);
 }
 
-/*######## English Page ########*/
-.english-page {
-    background: url(images/2820202.webp)no-repeat fixed center;
-    background-size: 100%;
-}
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 
-
-.englishExercise p {
-    padding: 10px; 
-    font-size: 24px;
-    text-align: justify !important;
-    line-height: 150%;
-}
-
-
-.lessons h1 {
-    padding: 10px;
-    padding-left: 20px;
-    font-size: 16px;
-    color: var(--border-color);
-}
-
-
-.lessons div:hover {
-    transition: 0.5s;
-    background-color: var(--box-color);
-
-}
-
-
-
-.writtenLetters {
-    color: #90c4f0;
-}
-
-.pointer {
-    position: absolute;
-    z-index: 10;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    visibility: hidden;
-    font-size: 30px;
-}
-
-.start-btn-lang{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: unset;
-    color: var(--text-color);
-    border-radius: 5px;
-    border: 2px solid var(--border-color);
-    font-size: 20px;
-}
-.start-btn-lang:hover {
-    transition: 0.3s;
-    color: var(--title-color);
-}
-
-/*######## Person Page ########*/
-.persian-page {
+.persionPage , .englishPage{
     background: url(images/2820202.webp)no-repeat fixed center;
     background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.persionExercise{
+.exercises{
     position: absolute;
     right: 445px;
     top: 120px;
@@ -183,6 +123,10 @@
     flex-direction: row;
     flex-flow: row-reverse wrap;
     row-gap: 5px;
+}
+.englishPage .exercises {
+    flex-flow: row wrap;
+    right: 430px;
 }
 
 .computer-monitor{

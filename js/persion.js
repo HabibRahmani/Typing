@@ -1,4 +1,4 @@
-const persionExercise = document.querySelector('.persionExercise');
+const Exercises = document.querySelector('.exercises');
 const speed = document.querySelector('.speed')
 
 const persionExercises = ["بتببتتبتبتببتتبتتبتبتتتتتتببتتبببتتتببتتببتبتبتتببتببتبت",
@@ -42,7 +42,7 @@ function addLesson (){
         let letter = document.createElement('div');
         letter.classList.add("letter");
         letter.textContent = persionExercises[currentLesson][i];
-        persionExercise.appendChild(letter);
+        Exercises.appendChild(letter);
     }
 
     words = persionExercises[currentLesson].length / 3;
@@ -59,7 +59,7 @@ function checkForTrueWritten (){
         letters[writtenTrueLetters].style.backgroundColor = "blue";
         writtenTrueLetters++;
         if(writtenTrueLetters === persionExercises[currentLesson].length){
-            persionExercise.innerHTML = ''
+            Exercises.innerHTML = ''
             writtenTrueLetters = 0;
             currentLesson++;
             letters.textContent = ''
