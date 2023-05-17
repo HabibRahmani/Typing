@@ -112,9 +112,9 @@
 
 .exercises{
     position: absolute;
-    right: 445px;
+    right: 460px;
     top: 120px;
-    width: 45%;
+    width: 42%;
     color: var(--text-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: 1px solid var(--border-color);

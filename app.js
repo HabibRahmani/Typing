@@ -3,18 +3,18 @@ const speed = document.querySelector('.speed')
 
 
 const englishExercises = [
-    "asl;llaass;;allsaaa;;llaallssaa;;ssllllaass;;ssaaaa;;llllaall;;",
-    "dffjjkddddjjkkdkjffjkdfjjkddkkaaall;ddddfjjkkssllfjkladdjkl;df",
-    "ghhgfghjjhgghhgffhjjkddall;falljjhhhffgghhjjggffaddall;sad",
-    "ttyytgyhjjyyfftttgyhaddall;sadttggyhhjyjyfathhyyggttfat ll;",
-    "rruufrjutryufaaddttrryyuurruuyutraddall;rurruufrjutryu",
-    "eeiiuiretyrueikideatairruall;sadfatfillfulleatityard",
-    "wwooyouweekall;thisiskid;oowwwweeooiithewoodisfar;eatthatall;",
-    "ppqqqqppqqwwppoowwqqooppiqeptypplayquota;typethisletteradd",
-    "vvnnbbjjnnffvvhhbbggbb;openthisdoorplease;boardisfar;vvbbnn ",
-    "ccmmddcckkmmmmcckmdcmilkissomethingtodrinkandithasmorevitamin",
-    "x,,xxssxxll,,sxl,ll,,ssxxll,,sxl,ssxxtheboxissofar,ssxxll,,",
-    "zz..;;..aazz..;;zzaaazsx;.lilovetogotothezoo,butitissofar.",
+    "asl; llaa ss;; all saa ;;ll aall ssaa ;;ss ll aass ;;ss aa;; llaa ll;;",
+    "dfjk ddjj kkff jf jk df jj kd dk kaa ll; dfjk kss llfj klad djk l; df",
+    "gh hg fg hj jh gghh gf fh jjkk dd all; fall jjhh ffgg add all; sad",
+    "ttyy tgyh jjyy fftt gy hadd all; sad ttgg yh jy fat hhyy ggtt fat all;",
+    "rruu fr ju tr yu fat tr yyuu rruu yu tr add all; ru rruu fr ju tr yu",
+    "eeii ui re ty ru ei ki de at air ru all; sad fat fill full eat it yard",
+    "wwoo yo uw ek all; this is a kid; ooww eeoo iiww is far; ww oo wo",
+    "pq qqpp qqww ppoo wwqq oopp iq ep ty pp lay; type this letter",
+    "vvnn bbjj nnff vvhh bbgg; open this door please; vv bb nn vbn",
+    "ccmm ddcc kkmm ckmd cm ccmm aacc llmm mc add mm cc kkmm ddcc",
+    "x, xs xl ,, sxl, ll,, ssxx ll,, sxl, ssxx; the box is so far, ssxx ll,,",
+    "zz.. ;;.. aazz ..;; zzaa zsx. i love to go to the zoo, but it is so far.",
 ];
 
 
