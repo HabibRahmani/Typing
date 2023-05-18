@@ -1,5 +1,7 @@
 const Exercises = document.querySelector('.exercises');
 const speed = document.querySelector('.speed')
+const lessonsBody = document.querySelector('.lessonsBody')
+const exercisePage = document.querySelector('.exercisePage')
 
 const persionExercises = ["بب تت بت تب تت بب تتبب بت تتبب تتبب تب تب تت بب تب بت بت",
     "نی نن ین نن ین نن ین نی نی نن ین نن نی نن ین نی ین یی ین نن ین ین نن یی نن",
@@ -33,9 +35,29 @@ document.addEventListener('keypress', (e) => {
     }
 
 })
+addLessonsBox()
 
+function addLessonsBox() {
+    for (let i = 0; i < persionExercises.length; i++) {
+        let box = document.createElement('div')
+        box.classList.add("box")
+        box.textContent = "درس " + (i + 1);
+        lessonsBody.appendChild(box);
+    }
+}
 
-addLesson()
+let boxes = document.querySelectorAll('.box')
+
+for (let i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener("click", function () {
+        currentLesson = i;
+        addLesson()
+
+        exercisePage.style.display = "block"
+        lessonsBody.style.display = "none"
+    })
+}
+
 
 function addLesson (){
     for(let i = 0; i < persionExercises[currentLesson].length; i++){

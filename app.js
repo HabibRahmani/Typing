@@ -1,9 +1,8 @@
 const Exercises = document.querySelector('.exercises');
 const speed = document.querySelector('.speed')
-const englishPage = document.querySelector('.englishPage')
+const lessonsBody = document.querySelector('.lessonsBody')
 const exercisePage = document.querySelector('.exercisePage')
 
-exercisePage.style.display = "none"
 
 
 const englishExercises = [
@@ -35,18 +34,39 @@ let startSpeed = true;
 document.addEventListener('keypress', (e) => {
     value = e.key;
     checkForTrueWritten()
-    if(startSpeed){
-        speedTimer = setInterval(countSpeed , 1000)
+    if (startSpeed) {
+        speedTimer = setInterval(countSpeed, 1000)
         startSpeed = false;
     }
 
 })
 
+addLessonsBox()
 
-addLesson()
+function addLessonsBox() {
+    for (let i = 0; i < englishExercises.length; i++) {
+        let box = document.createElement('div')
+        box.classList.add("box")
+        box.textContent = "LESSON " + (i + 1);
+        lessonsBody.appendChild(box);
+    }
+}
 
-function addLesson (){
-    for(let i = 0; i < englishExercises[currentLesson].length; i++){
+let boxes = document.querySelectorAll('.box')
+
+for (let i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener("click", function () {
+        currentLesson = i;
+        addLesson()
+
+        exercisePage.style.display = "block"
+        lessonsBody.style.display = "none"
+    })
+}
+
+
+function addLesson() {
+    for (let i = 0; i < englishExercises[currentLesson].length; i++) {
         let letter = document.createElement('div');
         letter.classList.add("letter");
         letter.textContent = englishExercises[currentLesson][i];
@@ -60,27 +80,27 @@ function addLesson (){
     startSpeed = true;
 }
 
-function checkForTrueWritten (){
+function checkForTrueWritten() {
 
-    if(value === englishExercises[currentLesson][writtenTrueLetters]){
+    if (value === englishExercises[currentLesson][writtenTrueLetters]) {
         letters = document.querySelectorAll('.letter');
         letters[writtenTrueLetters].style.backgroundColor = "#5294e6";
         writtenTrueLetters++;
-        if(writtenTrueLetters === englishExercises[currentLesson].length){
+        if (writtenTrueLetters === englishExercises[currentLesson].length) {
             Exercises.innerHTML = ''
             writtenTrueLetters = 0;
             currentLesson++;
             letters.textContent = ''
             addLesson()
         }
-    }else{
+    } else {
         audio.play();
     }
 
 }
 
-function countSpeed (){
-    if(sec > 1){
+function countSpeed() {
+    if (sec > 1) {
         let userSpeed = (60 * words) / sec;
         speed.textContent = Math.floor(userSpeed);
     }
