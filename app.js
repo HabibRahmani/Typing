@@ -1,5 +1,9 @@
 const Exercises = document.querySelector('.exercises');
 const speed = document.querySelector('.speed')
+const englishPage = document.querySelector('.englishPage')
+const exercisePage = document.querySelector('.exercisePage')
+
+exercisePage.style.display = "none"
 
 
 const englishExercises = [
