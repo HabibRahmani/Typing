@@ -2,7 +2,9 @@ const Exercises = document.querySelector('.exercises');
 const speed = document.querySelector('.speed')
 const lessonsBody = document.querySelector('.lessonsBody')
 const exercisePage = document.querySelector('.exercisePage')
-
+const backButton = document.querySelector('.back-button');
+const backBox = document.querySelector('.back-box');
+const englishPage = document.querySelector('.englishPage')
 
 
 const englishExercises = [
@@ -58,12 +60,22 @@ for (let i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", function () {
         currentLesson = i;
         addLesson()
-
+        englishPage.style.background = "url(images/2820202.webp)no-repeat fixed center"
+        englishPage.style.backgroundSize = "100%"
         exercisePage.style.display = "block"
         lessonsBody.style.display = "none"
+        backButton.style.display = "none"
     })
 }
 
+backBox.addEventListener("click", function () {
+    englishPage.style.background = " url(images/haha.png)no-repeat fixed center"
+    englishPage.style.backgroundSize = "100%"
+    exercisePage.style.display = "none"
+    lessonsBody.style.display = "flex"
+    backButton.style.display = "block"
+    Exercises.innerHTML = ""
+})
 
 function addLesson() {
     for (let i = 0; i < englishExercises[currentLesson].length; i++) {

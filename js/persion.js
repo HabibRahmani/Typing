@@ -2,6 +2,10 @@ const Exercises = document.querySelector('.exercises');
 const speed = document.querySelector('.speed')
 const lessonsBody = document.querySelector('.lessonsBody')
 const exercisePage = document.querySelector('.exercisePage')
+const backButton = document.querySelector('.back-button');
+const backBox = document.querySelector('.back-box');
+const persionPage = document.querySelector('.persionPage')
+
 
 const persionExercises = ["بب تت بت تب تت بب تتبب بت تتبب تتبب تب تب تت بب تب بت بت",
     "نی نن ین نن ین نن ین نی نی نن ین نن نی نن ین نی ین یی ین نن ین ین نن یی نن",
@@ -29,8 +33,8 @@ let startSpeed = true;
 document.addEventListener('keypress', (e) => {
     value = e.key;
     checkForTrueWritten()
-    if(startSpeed){
-        speedTimer = setInterval(countSpeed , 1000)
+    if (startSpeed) {
+        speedTimer = setInterval(countSpeed, 1000)
         startSpeed = false;
     }
 
@@ -52,15 +56,25 @@ for (let i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", function () {
         currentLesson = i;
         addLesson()
-
+        persionPage.style.background = "url(images/2820202.webp)no-repeat fixed center"
+        persionPage.style.backgroundSize = "100%"
         exercisePage.style.display = "block"
         lessonsBody.style.display = "none"
+        backButton.style.display = "none"
     })
 }
 
+backBox.addEventListener("click", function () {
+    persionPage.style.background = " url(images/haha.png)no-repeat fixed center"
+    persionPage.style.backgroundSize = "100%"
+    exercisePage.style.display = "none"
+    lessonsBody.style.display = "flex"
+    backButton.style.display = "block"
+    Exercises.innerHTML = ""
+})
 
-function addLesson (){
-    for(let i = 0; i < persionExercises[currentLesson].length; i++){
+function addLesson() {
+    for (let i = 0; i < persionExercises[currentLesson].length; i++) {
         let letter = document.createElement('div');
         letter.classList.add("letter");
         letter.textContent = persionExercises[currentLesson][i];
@@ -74,27 +88,27 @@ function addLesson (){
     startSpeed = true;
 }
 
-function checkForTrueWritten (){
+function checkForTrueWritten() {
 
-    if(value === persionExercises[currentLesson][writtenTrueLetters]){
+    if (value === persionExercises[currentLesson][writtenTrueLetters]) {
         letters = document.querySelectorAll('.letter');
         letters[writtenTrueLetters].style.backgroundColor = "#5294e6";
         writtenTrueLetters++;
-        if(writtenTrueLetters === persionExercises[currentLesson].length){
+        if (writtenTrueLetters === persionExercises[currentLesson].length) {
             Exercises.innerHTML = ''
             writtenTrueLetters = 0;
             currentLesson++;
             letters.textContent = ''
             addLesson()
         }
-    }else{
+    } else {
         audio.play();
     }
 
 }
 
-function countSpeed (){
-    if(sec > 1){
+function countSpeed() {
+    if (sec > 1) {
         let userSpeed = (60 * words) / sec;
         speed.textContent = Math.floor(userSpeed);
     }
