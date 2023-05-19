@@ -48,8 +48,14 @@ addLessonsBox()
 function addLessonsBox() {
     for (let i = 0; i < englishExercises.length; i++) {
         let box = document.createElement('div')
+        let boxTitle = document.createElement('li')
+        let lock = document.createElement('div')
         box.classList.add("box")
-        box.textContent = "LESSON " + (i + 1);
+        boxTitle.classList.add("boxTitle")
+        lock.classList.add('lock')
+        boxTitle.textContent = "LESSON " + (i + 1);
+        box.appendChild(boxTitle)
+        box.appendChild(lock)
         lessonsBody.appendChild(box);
     }
 }

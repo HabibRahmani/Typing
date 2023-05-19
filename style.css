@@ -113,8 +113,7 @@ body{
     background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* 1366
-625 */
+
 .lessonsBody{
     position: absolute;
     left: 170px;
@@ -136,11 +135,23 @@ body{
     height: 200px;
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #58a3ff;
+    background-color: var(--title-color);
     text-align: center;
     margin-left: 50px;
     margin-top: 50px;
     cursor: pointer;
+}
+
+.boxTitle{
+    padding-top: 40px;
+}
+
+.lock {
+    background: url(./icons/lock-2.svg)no-repeat;
+    background-size: 100%;
+    width: 70px;
+    height: 70px;
+    padding-top: 60px;
 }
 
 .back-box{
