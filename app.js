@@ -33,16 +33,19 @@ let sec;
 let words;
 let startSpeed = true;
 let boxes;
+let opendLessons = 0;
 
-document.addEventListener('keypress', (e) => {
+
+
+function keyPress(e) {
     value = e.key;
     checkForTrueWritten()
     if (startSpeed) {
         speedTimer = setInterval(countSpeed, 1000)
         startSpeed = false;
     }
+}
 
-})
 
 addLessonsBox()
 
@@ -56,6 +59,7 @@ function addLessonsBox() {
         box.classList.add("box")
         boxTitle.classList.add("boxTitle")
         boxTitle.textContent = (i + 1);
+
         lessonContainer.appendChild(boxTitle)
 
         if (i < currentLesson) {
@@ -75,6 +79,7 @@ function addLessonsBox() {
 
         box.appendChild(lessonContainer)
         lessonsBody.appendChild(box);
+
     }
     boxes = document.querySelectorAll('.box')
     boxesEventListener()
@@ -83,10 +88,7 @@ function addLessonsBox() {
 function boxesEventListener() {
     for (let i = 0; i < boxes.length; i++) {
         boxes[i].addEventListener("click", function () {
-            console.log(currentLesson+" "+i);
-            if (i <= currentLesson) {
-                console.log("new lesson" + i);
-                currentLesson = i;
+            if (i <= opendLessons) {
                 addLesson(i)
                 englishPage.style.background = "url(images/2820202.webp)no-repeat fixed center"
                 englishPage.style.backgroundSize = "100%"
@@ -94,10 +96,12 @@ function boxesEventListener() {
                 lessonsBody.style.display = "none"
                 backButton.style.display = "none"
             } else {
-                alert("complete this lesson")
+                alert("Do Previous Lessons Please!")
             }
+            document.addEventListener('keypress', keyPress);
         })
     }
+
 }
 
 backBox.addEventListener("click", function () {
@@ -107,6 +111,8 @@ backBox.addEventListener("click", function () {
     lessonsBody.style.display = "flex"
     backButton.style.display = "block"
     Exercises.innerHTML = ""
+    document.removeEventListener("keypress", keyPress)
+
 })
 
 function addLesson(lesson) {
@@ -132,10 +138,11 @@ function checkForTrueWritten() {
         if (writtenTrueLetters === englishExercises[currentLesson].length) {
             Exercises.innerHTML = ''
             writtenTrueLetters = 0;
+            opendLessons++;
             currentLesson++;
             addLessonsBox()
             letters.textContent = ''
-            addLesson()
+            addLesson(opendLessons)
         }
     } else {
         audio.play();

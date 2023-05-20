@@ -117,23 +117,21 @@ body{
 .lessonsBody{
     position: absolute;
     left: 170px;
-    width: 1000px;
+    width: 770px;
     height: 625px;
     padding-left: 0px;
     margin: 0px;
     display: flex;
     flex-direction: row;
     flex-flow: row wrap;
-    gap: 100px;
 }
 .exercisePage{
     display: none;
 }
 
 .box {
-    width: 200px;
-    height: 200px;
-    font-size: 20px;
+    width: 150px;
+    height: 150px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #4972a3;
     text-align: center;
@@ -146,34 +144,39 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 100px;
+    gap: 65px;
     padding-top: 10px;
 }
 .boxTitle{
-    padding: 10px;
+    padding: 5px;
     padding-top: 20px;
-    margin-top: -20px;
+    margin-top: -20px; 
+    font-size: 24px;
 }
 
 .lock {
     background: url(./icons/lock-2.svg)no-repeat;
     background-size: 100%;
-    width: 40px;
-    height: 40px;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
 }
 .tick {
     background: url(./icons/tick-success.svg)no-repeat;
     background-size: 100%;
-    width: 45px;
-    height: 45px;
-    margin-left: -10px;
+    width: 12px;
+    height: 12px;
+    margin-left: -15px;
+    padding: 10px;
+    padding-top: 12px;
 }
 .progress {
     background: url(./icons/clock.svg)no-repeat;
     background-size: 100%;
-    width: 50px;
-    height: 50px;
-    margin-left: -10px;
+    width: 15px;
+    height: 15px;
+    margin-left: -15px;
+    padding: 10px;
 }
 
 .back-box{
@@ -208,7 +211,7 @@ body{
 }
 .englishPage .exercises {
     flex-flow: row wrap;
-    right: 430px;
+    right: 450px;
 }
 
 .computer-monitor{
