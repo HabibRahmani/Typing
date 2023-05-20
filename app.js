@@ -36,6 +36,9 @@ let boxes;
 let opendLessons = 0;
 
 
+opendLessons = localStorage.getItem("opendLessons")
+
+// localStorage.clear("opendLessons")
 
 function keyPress(e) {
     value = e.key;
@@ -62,11 +65,11 @@ function addLessonsBox() {
 
         lessonContainer.appendChild(boxTitle)
 
-        if (i < currentLesson) {
+        if (i < opendLessons) {
             let tick = document.createElement('div')
             tick.classList.add('tick')
             lessonContainer.appendChild(tick)
-        } else if (i <= currentLesson) {
+        } else if (i <= opendLessons) {
             let progress = document.createElement('div')
             progress.classList.add('progress')
             lessonContainer.appendChild(progress)
@@ -90,6 +93,7 @@ function boxesEventListener() {
         boxes[i].addEventListener("click", function () {
             if (i <= opendLessons) {
                 addLesson(i)
+                currentLesson = i;
                 englishPage.style.background = "url(images/2820202.webp)no-repeat fixed center"
                 englishPage.style.backgroundSize = "100%"
                 exercisePage.style.display = "block"
@@ -138,11 +142,15 @@ function checkForTrueWritten() {
         if (writtenTrueLetters === englishExercises[currentLesson].length) {
             Exercises.innerHTML = ''
             writtenTrueLetters = 0;
-            opendLessons++;
             currentLesson++;
+
+            if(currentLesson > opendLessons){
+                opendLessons++;
+                localStorage.setItem("opendLessons", opendLessons);
+            }
             addLessonsBox()
             letters.textContent = ''
-            addLesson(opendLessons)
+            addLesson(currentLesson)
         }
     } else {
         audio.play();

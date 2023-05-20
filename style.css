@@ -150,8 +150,9 @@ body{
 .boxTitle{
     padding: 5px;
     padding-top: 20px;
-    margin-top: -20px; 
+    margin-top: -15px; 
     font-size: 24px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .lock {
