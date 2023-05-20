@@ -135,23 +135,31 @@ body{
     height: 200px;
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: var(--title-color);
+    background-color: #4972a3;
     text-align: center;
     margin-left: 50px;
     margin-top: 50px;
     cursor: pointer;
 }
 
+.lessonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    padding-top: 10px;
+}
 .boxTitle{
-    padding-top: 40px;
+    padding: 10px;
+    padding-top: 20px;
+    margin-top: -20px;
 }
 
 .lock {
     background: url(./icons/lock-2.svg)no-repeat;
     background-size: 100%;
-    width: 70px;
-    height: 70px;
-    padding-top: 60px;
+    width: 40px;
+    height: 40px;
 }
 
 .back-box{
