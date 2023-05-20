@@ -32,6 +32,7 @@ let speedTimer;
 let sec;
 let words;
 let startSpeed = true;
+let boxes;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
@@ -46,35 +47,57 @@ document.addEventListener('keypress', (e) => {
 addLessonsBox()
 
 function addLessonsBox() {
+    lessonsBody.innerHTML = ""
     for (let i = 0; i < englishExercises.length; i++) {
         let box = document.createElement('div')
         let boxTitle = document.createElement('h1')
-        let lock = document.createElement('div')
         let lessonContainer = document.createElement('div')
         lessonContainer.classList.add('lessonContainer')
         box.classList.add("box")
         boxTitle.classList.add("boxTitle")
-        lock.classList.add('lock')
         boxTitle.textContent = (i + 1);
         lessonContainer.appendChild(boxTitle)
-        lessonContainer.appendChild(lock)
+
+        if (i < currentLesson) {
+            let tick = document.createElement('div')
+            tick.classList.add('tick')
+            lessonContainer.appendChild(tick)
+        } else if (i <= currentLesson) {
+            let progress = document.createElement('div')
+            progress.classList.add('progress')
+            lessonContainer.appendChild(progress)
+        } else {
+            let lock = document.createElement('div')
+            lock.classList.add('lock')
+            lessonContainer.appendChild(lock)
+
+        }
+
         box.appendChild(lessonContainer)
         lessonsBody.appendChild(box);
     }
+    boxes = document.querySelectorAll('.box')
+    boxesEventListener()
 }
 
-let boxes = document.querySelectorAll('.box')
-
-for (let i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener("click", function () {
-        currentLesson = i;
-        addLesson()
-        englishPage.style.background = "url(images/2820202.webp)no-repeat fixed center"
-        englishPage.style.backgroundSize = "100%"
-        exercisePage.style.display = "block"
-        lessonsBody.style.display = "none"
-        backButton.style.display = "none"
-    })
+function boxesEventListener() {
+    for (let i = 0; i < boxes.length; i++) {
+        boxes[i].addEventListener("click", function () {
+            console.log(currentLesson+" "+i);
+            if (i <= currentLesson) {
+                console.log("new lesson" + i);
+                currentLesson = i;
+                addLesson(i)
+                englishPage.style.background = "url(images/2820202.webp)no-repeat fixed center"
+                englishPage.style.backgroundSize = "100%"
+                exercisePage.style.display = "block"
+                lessonsBody.style.display = "none"
+                backButton.style.display = "none"
+            } else {
+                alert("complete this lesson")
+            }
+        })
+    }
 }
 
 backBox.addEventListener("click", function () {
@@ -86,15 +109,14 @@ backBox.addEventListener("click", function () {
     Exercises.innerHTML = ""
 })
 
-function addLesson() {
-    for (let i = 0; i < englishExercises[currentLesson].length; i++) {
+function addLesson(lesson) {
+    for (let i = 0; i < englishExercises[lesson].length; i++) {
         let letter = document.createElement('div');
         letter.classList.add("letter");
-        letter.textContent = englishExercises[currentLesson][i];
+        letter.textContent = englishExercises[lesson][i];
         Exercises.appendChild(letter);
     }
-
-    words = englishExercises[currentLesson].length / 3;
+    words = englishExercises[lesson].length / 3;
     sec = 0;
     speed.textContent = "0"
     clearInterval(speedTimer)
@@ -111,6 +133,7 @@ function checkForTrueWritten() {
             Exercises.innerHTML = ''
             writtenTrueLetters = 0;
             currentLesson++;
+            addLessonsBox()
             letters.textContent = ''
             addLesson()
         }
