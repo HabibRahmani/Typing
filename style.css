@@ -138,6 +138,8 @@ body{
     margin-left: 50px;
     margin-top: 50px;
     cursor: pointer;
+    border: 2px solid black;
+    box-shadow: 3px 10px 15px 3px black;
 }
 
 .lessonContainer {
@@ -171,6 +173,22 @@ body{
     padding: 10px;
     padding-top: 12px;
 }
+.boxKeyboard {
+    background: url(./icons/keyboard-2.svg)no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    padding: 20px;
+    margin-left: 45px;
+    margin-top: -15px;
+}
+
+.lessonsLetters {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
 .progress {
     background: url(./icons/clock.svg)no-repeat;
     background-size: 100%;
@@ -195,6 +213,8 @@ body{
     transition: 0.3s;
     color: var(--text-color);
 }
+
+
 
 .exercises{
     position: absolute;

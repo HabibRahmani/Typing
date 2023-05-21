@@ -79,12 +79,13 @@ function addLessonsBox() {
 
         }
         let boxCurrentLesson = document.createElement('p')
-        let boxLessonContent = document.createElement('p')
+        let boxLessonKeyboard = document.createElement('div')
         let lessonsInfo = document.createElement('div')
-        boxCurrentLesson.textContent = "این درس"
-        boxLessonContent.textContent = boxLessons[i];
+        boxCurrentLesson.textContent = "حروف : "+boxLessons[i];
+        boxLessonKeyboard.classList.add('boxKeyboard')
+        boxCurrentLesson.classList.add('lessonsLetters')
+        lessonsInfo.appendChild(boxLessonKeyboard)
         lessonsInfo.appendChild(boxCurrentLesson)
-        lessonsInfo.appendChild(boxLessonContent)
 
         box.appendChild(lessonContainer)
         box.appendChild(lessonsInfo)
