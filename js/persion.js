@@ -35,7 +35,7 @@ let boxes;
 let opendPersionLessons = 0;
 
 
-opendpersionLessons = localStorage.getItem("opendPersionLessons")
+opendPersionLessons = localStorage.getItem("opendPersionLessons")
 
 // localStorage.clear("opendpersionLessons")
 
@@ -68,7 +68,7 @@ function addLessonsBox() {
             let tick = document.createElement('div')
             tick.classList.add('tick')
             lessonContainer.appendChild(tick)
-        } else if (i <= opendpersionLessons) {
+        } else if (i <= opendPersionLessons) {
             let progress = document.createElement('div')
             progress.classList.add('progress')
             lessonContainer.appendChild(progress)
