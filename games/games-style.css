@@ -11,16 +11,16 @@
 .games-main-page {
     margin: 0;
     padding: 0;
-    background: url(../images/photo_2023-04-28_15-02-32.jpg) no-repeat fixed center;
+    background: url(../images/games-cat.webp) no-repeat fixed center;
     background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .games-btn {
-    padding-top: 200px;
     display: flex;
     justify-content: center;
     gap: 50px;
+    padding-top: 500px;
 }
 
 .games-btn img {

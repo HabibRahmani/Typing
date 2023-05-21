@@ -138,8 +138,12 @@ body{
     margin-left: 50px;
     margin-top: 50px;
     cursor: pointer;
-    border: 2px solid black;
-    box-shadow: 3px 10px 15px 3px black;
+    border: 3px solid black;
+    box-shadow: 2px 8px 12px 2px black;
+}
+
+.box:hover{
+    box-shadow: 4px 12px 17px 4px black;
 }
 
 .lessonContainer {
@@ -186,7 +190,8 @@ body{
 .lessonsLetters {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 18px;
-    margin-top: 10px;
+    margin-top: 12px;
+    border-top: 1px solid black;
 }
 
 .progress {
@@ -218,10 +223,10 @@ body{
 
 .exercises{
     position: absolute;
-    right: 460px;
+    right: 420px;
     top: 120px;
-    width: 42%;
-    color: var(--text-color);
+    width: 620px;
+    color: var(--title-color);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -229,10 +234,12 @@ body{
     flex-direction: row;
     flex-flow: row-reverse wrap;
     row-gap: 5px;
+    text-align: justify;
+
 }
 .englishPage .exercises {
     flex-flow: row wrap;
-    right: 450px;
+    right: 400px;
 }
 
 .computer-monitor{
@@ -242,13 +249,13 @@ body{
 }
 
 .monitor{
-    background: url(./icons/new-monitor.svg) no-repeat ;
-    width: 730px;
-    height: 580px;
+    background: url(./icons/monitor-tv-blue.svg) no-repeat ;
+    width: 750px;
+    height: 640px;
     position: absolute;
-    left: 300px;
-    background-size: 650px;
-
+    left: 280px;
+    background-size: 730px;
+    margin-top: -30px;
 }
 
 .speedInfo {
