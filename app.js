@@ -22,6 +22,7 @@ const englishExercises = [
     "zz.. ;;.. aazz ..;; zzaa zsx. i love to go to the zoo, but it is so far.",
 ];
 
+const boxLessons = ["asl;","dfjk","gh","ty","ru","ei","wo","pq","vnb","cm","x,","z."]
 
 let currentLesson = 0;
 let value;
@@ -79,8 +80,16 @@ function addLessonsBox() {
             lessonContainer.appendChild(lock)
 
         }
+        let boxCurrentLesson = document.createElement('p')
+        let boxLessonContent = document.createElement('p')
+        let lessonsInfo = document.createElement('div')
+        boxCurrentLesson.textContent = "This Lesson"
+        boxLessonContent.textContent = boxLessons[i];
+        lessonsInfo.appendChild(boxCurrentLesson)
+        lessonsInfo.appendChild(boxLessonContent)
 
         box.appendChild(lessonContainer)
+        box.appendChild(lessonsInfo)
         lessonsBody.appendChild(box);
 
     }

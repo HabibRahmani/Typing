@@ -20,6 +20,8 @@ const persionExercises = ["بب تت بت تب تت بب تتبب بت تتبب 
     "طظ و. و.و. طظ طظ ظطو .ط ظظ ططوو طوظ. ططوو ظظ.. .و .وطظ طط ظظ وو ..",
 ]
 
+const boxLessons = ["ب ت","ن ی","س م ش ک","ا ل","ف ق ع غ","ه ث","ح خ ص ض","ج چ","پ","ر ز د ذ","ط ظ و ."]
+
 let currentLesson = 0;
 let value;
 let writtenTrueLetters = 0;
@@ -29,39 +31,88 @@ let speedTimer;
 let sec;
 let words;
 let startSpeed = true;
+let boxes;
+let opendPersionLessons = 0;
 
-document.addEventListener('keypress', (e) => {
+
+opendpersionLessons = localStorage.getItem("opendPersionLessons")
+
+// localStorage.clear("opendpersionLessons")
+
+function keyPress(e) {
     value = e.key;
     checkForTrueWritten()
     if (startSpeed) {
         speedTimer = setInterval(countSpeed, 1000)
         startSpeed = false;
     }
+}
 
-})
+
 addLessonsBox()
 
 function addLessonsBox() {
+    lessonsBody.innerHTML = ""
     for (let i = 0; i < persionExercises.length; i++) {
         let box = document.createElement('div')
+        let boxTitle = document.createElement('h1')
+        let lessonContainer = document.createElement('div')
+        lessonContainer.classList.add('lessonContainer')
         box.classList.add("box")
-        box.textContent = "درس " + (i + 1);
+        boxTitle.classList.add("boxTitle")
+        boxTitle.textContent = (i + 1);
+
+        lessonContainer.appendChild(boxTitle)
+
+        if (i < opendPersionLessons) {
+            let tick = document.createElement('div')
+            tick.classList.add('tick')
+            lessonContainer.appendChild(tick)
+        } else if (i <= opendpersionLessons) {
+            let progress = document.createElement('div')
+            progress.classList.add('progress')
+            lessonContainer.appendChild(progress)
+        } else {
+            let lock = document.createElement('div')
+            lock.classList.add('lock')
+            lessonContainer.appendChild(lock)
+
+        }
+        let boxCurrentLesson = document.createElement('p')
+        let boxLessonContent = document.createElement('p')
+        let lessonsInfo = document.createElement('div')
+        boxCurrentLesson.textContent = "این درس"
+        boxLessonContent.textContent = boxLessons[i];
+        lessonsInfo.appendChild(boxCurrentLesson)
+        lessonsInfo.appendChild(boxLessonContent)
+
+        box.appendChild(lessonContainer)
+        box.appendChild(lessonsInfo)
         lessonsBody.appendChild(box);
+
     }
+    boxes = document.querySelectorAll('.box')
+    boxesEventListener()
 }
 
-let boxes = document.querySelectorAll('.box')
+function boxesEventListener() {
+    for (let i = 0; i < boxes.length; i++) {
+        boxes[i].addEventListener("click", function () {
+            if (i <= opendPersionLessons) {
+                addLesson(i)
+                currentLesson = i;
+                persionPage.style.background = "url(images/2820202.webp)no-repeat fixed center"
+                persionPage.style.backgroundSize = "100%"
+                exercisePage.style.display = "block"
+                lessonsBody.style.display = "none"
+                backButton.style.display = "none"
+            } else {
+                alert("Do Previous Lessons Please!")
+            }
+            document.addEventListener('keypress', keyPress);
+        })
+    }
 
-for (let i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener("click", function () {
-        currentLesson = i;
-        addLesson()
-        persionPage.style.background = "url(images/2820202.webp)no-repeat fixed center"
-        persionPage.style.backgroundSize = "100%"
-        exercisePage.style.display = "block"
-        lessonsBody.style.display = "none"
-        backButton.style.display = "none"
-    })
 }
 
 backBox.addEventListener("click", function () {
@@ -71,17 +122,18 @@ backBox.addEventListener("click", function () {
     lessonsBody.style.display = "flex"
     backButton.style.display = "block"
     Exercises.innerHTML = ""
+    document.removeEventListener("keypress", keyPress)
+
 })
 
-function addLesson() {
-    for (let i = 0; i < persionExercises[currentLesson].length; i++) {
+function addLesson(lesson) {
+    for (let i = 0; i < persionExercises[lesson].length; i++) {
         let letter = document.createElement('div');
         letter.classList.add("letter");
-        letter.textContent = persionExercises[currentLesson][i];
+        letter.textContent = persionExercises[lesson][i];
         Exercises.appendChild(letter);
     }
-
-    words = persionExercises[currentLesson].length / 3;
+    words = persionExercises[lesson].length / 3;
     sec = 0;
     speed.textContent = "0"
     clearInterval(speedTimer)
@@ -98,8 +150,14 @@ function checkForTrueWritten() {
             Exercises.innerHTML = ''
             writtenTrueLetters = 0;
             currentLesson++;
+
+            if(currentLesson > opendPersionLessons){
+                opendPersionLessons++;
+                localStorage.setItem("opendPersionLessons", opendPersionLessons);
+            }
+            addLessonsBox()
             letters.textContent = ''
-            addLesson()
+            addLesson(currentLesson)
         }
     } else {
         audio.play();
