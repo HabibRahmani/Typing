@@ -104,7 +104,7 @@ function boxesEventListener() {
             if (i <= opendLessons) {
                 addLesson(i)
                 currentLesson = i;
-                englishPage.style.background = "url(./images/typing-cats.webp)no-repeat fixed center"
+                englishPage.style.background = "url(./images/typing-avif-2.avif)no-repeat fixed center"
                 englishPage.style.backgroundSize = "100%"
                 exercisePage.style.display = "block"
                 lessonsBody.style.display = "none"
