@@ -102,7 +102,7 @@ function boxesEventListener() {
             if (i <= opendPersionLessons) {
                 addLesson(i)
                 currentLesson = i;
-                persionPage.style.background = "url(./images/typing-cats.webp)no-repeat fixed center"
+                persionPage.style.background = "url(./images/ncat-2.jpg)no-repeat fixed bottom"
                 persionPage.style.backgroundSize = "100%"
                 exercisePage.style.display = "block"
                 lessonsBody.style.display = "none"
