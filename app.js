@@ -163,6 +163,7 @@ function checkForTrueWritten() {
         }
     } else {
         audio.play();
+        audio.playbackRate = 4;
     }
 
 }

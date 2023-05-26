@@ -19,7 +19,6 @@ let writtenCharacters = 0;
 let audio = new Audio("car-race.mp3");
 
 
-
 let startPressingKey = true;
 
 document.addEventListener('keypress', (e) => {
