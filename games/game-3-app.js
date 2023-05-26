@@ -2,6 +2,8 @@ let doors = document.querySelector('.doors');
 const human = document.querySelector('.human');
 const ghost = document.querySelector('.ghost');
 
+
+
 const words = ["book", "table", "desk", "pen", "car", "home", "picture", "window", "door", "road", "ship", "mobile", "stone", "hand", "eye", "head", "tongue", "finger", "knee"];
 
 
@@ -10,12 +12,15 @@ let value;
 let currentLetter = 0;
 let currentWord = 0;
 let currentWordLenght;
+let audio = new Audio("ghost.mp3");
 
 
 document.addEventListener('keypress', keyPress);
 
-function keyPress (e){
+function keyPress(e) {
     value = e.key;
+    audio.play()
+
 
     checkWrittenLetters()
 }
@@ -23,48 +28,73 @@ function keyPress (e){
 // ############ Scary Man ############# //
 let runnigHumanTimer;
 
-let runnigHuman = true;
+let runnigHuman = 1;
 runnigHumanTimer = setInterval(run, 150);
 
 function run() {
-    if (runnigHuman) {
-        human.style.backgroundImage = "url(../icons/fast-running-human.svg) "
+    if (runnigHuman === 1) {
+        human.style.backgroundImage = "url(../icons/walking-human.svg)"
         ghost.style.top = "158px"
-        runnigHuman = false;
-    } else {
-        human.style.backgroundImage = "url(../icons/walking-human.svg) "
+        runnigHuman++
+    } else if (runnigHuman === 2){
+        human.style.backgroundImage = "url(../icons/run-human.svg) "
         ghost.style.top = "160px"
-        runnigHuman = true;
+        runnigHuman++
+    }else if (runnigHuman === 3){
+        human.style.backgroundImage = "url(../icons/fast-running-human.svg) "
+        ghost.style.top = "162px"
+        runnigHuman = 1;
     }
 }
 // ####################################
 // ############# Doors ################
 let addedDoors;
 let doorTimer;
-let startPoint = 1030;
+let startPoint = 1230;
 let addingTime = 0;
 let firstDoor = true;
 let openedDoors;
+
 
 addDoor()
 doorTimer = setInterval(doorsPosition, 100);
 
 function addDoor(leftPosition) {
+    
     let door = document.createElement('div');
     door.classList.add('door');
     door.style.left = startPoint + "px"
     doors.appendChild(door);
-    
+
     addWord(door)
-    
+
 
 }
+
+let doorsSpeed = 1;
+let speed = 90;
+
 function doorsPosition() {
     addingTime++
 
+
+
+
     if (addingTime % 25 === 0) {
         addDoor()
+        doorsSpeed++;
+        if (doorsSpeed % 5 === 0) {
+            console.log("haha");
+            clearInterval(doorTimer)
+            doorTimer = setInterval(doorsPosition, speed);
+
+            if (speed > 30) {
+                speed -= 10;
+            }
+        }
     }
+
+
 
     addedDoors = document.querySelectorAll('.door');
     openedDoors = document.querySelectorAll('.open-door');
@@ -72,12 +102,12 @@ function doorsPosition() {
 
     for (let i = addedDoors.length - 1; i >= 0; i--) {
 
-        if (parseInt(addedDoors[i].style.left) < 250) {
+        if (parseInt(addedDoors[i].style.left) < 80) {
             addedDoors[i].remove()
         }
 
         addedDoors[i].style.left = parseInt(addedDoors[i].style.left) - 10 + "px";
-        if(parseInt(addedDoors[i].style.left) === 400){
+        if (parseInt(addedDoors[i].style.left) === 190) {
             clearInterval(runnigHumanTimer)
             clearInterval(doorTimer)
             document.removeEventListener("keypress", keyPress)
@@ -85,7 +115,7 @@ function doorsPosition() {
     }
     for (let i = openedDoors.length - 1; i >= 0; i--) {
 
-        if (parseInt(openedDoors[i].style.left) < 250) {
+        if (parseInt(openedDoors[i].style.left) < 80) {
             openedDoors[i].remove()
         }
 
@@ -121,7 +151,7 @@ function checkWrittenLetters() {
             currentLetter = 0;
             addedDoors[0].classList.remove('door');
             addedDoors[0].classList.add('open-door')
-           
+
         }
     }
 

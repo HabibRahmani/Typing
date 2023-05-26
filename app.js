@@ -36,7 +36,6 @@ let startSpeed = true;
 let boxes;
 let opendLessons = 0;
 
-
 opendLessons = localStorage.getItem("opendLessons")
 
 // localStorage.clear("opendLessons")

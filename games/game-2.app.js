@@ -3,9 +3,9 @@ const container = document.querySelector('.game-2-container');
 let car = document.querySelector('.car');
 let speedText = document.querySelector('.speed-text');
 
-
 const paragraphs = ["Planet Earth is also known as the 'Blue Planet' because of the two-thirds of its surface is covered by saltwater oceans.It is the fifth-largest planet in the solar system. It is the only planet in our solar system with liquid water on the surface.",
 ];
+
 
 let value, letters;
 let currentSpan = 0;
@@ -16,12 +16,15 @@ let startTimer;
 let characters = 0;
 let paragraph;
 let writtenCharacters = 0;
+let audio = new Audio("car-race.mp3");
+
 
 
 let startPressingKey = true;
 
 document.addEventListener('keypress', (e) => {
     value = e.key;
+    audio.play()
     written();
 
     if(startPressingKey){
