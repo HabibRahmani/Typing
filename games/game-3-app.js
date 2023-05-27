@@ -1,7 +1,8 @@
 let doors = document.querySelector('.doors');
 const human = document.querySelector('.human');
 const ghost = document.querySelector('.ghost');
-
+const userRecord = document.querySelector('.record')
+const userCurrentRecord = document.querySelector('.current-record')
 
 
 const words = ["book", "table", "desk", "pen", "car", "home", "picture", "window", "door", "road", "ship", "mobile", "stone", "hand", "eye", "head", "tongue", "finger", "knee"];
@@ -13,6 +14,11 @@ let currentLetter = 0;
 let currentWord = 0;
 let currentWordLenght;
 let audio = new Audio("ghost.mp3");
+let currentRecord = 0;
+
+
+let record = localStorage.getItem("record");
+userRecord.textContent = "Your Best : " + record;
 
 
 document.addEventListener('keypress', keyPress);
@@ -20,7 +26,6 @@ document.addEventListener('keypress', keyPress);
 function keyPress(e) {
     value = e.key;
     audio.play()
-
 
     checkWrittenLetters()
 }
@@ -36,11 +41,11 @@ function run() {
         human.style.backgroundImage = "url(../icons/walking-human.svg)"
         ghost.style.top = "158px"
         runnigHuman++
-    } else if (runnigHuman === 2){
+    } else if (runnigHuman === 2) {
         human.style.backgroundImage = "url(../icons/run-human.svg) "
         ghost.style.top = "160px"
         runnigHuman++
-    }else if (runnigHuman === 3){
+    } else if (runnigHuman === 3) {
         human.style.backgroundImage = "url(../icons/fast-running-human.svg) "
         ghost.style.top = "162px"
         runnigHuman = 1;
@@ -60,7 +65,7 @@ addDoor()
 doorTimer = setInterval(doorsPosition, 100);
 
 function addDoor(leftPosition) {
-    
+
     let door = document.createElement('div');
     door.classList.add('door');
     door.style.left = startPoint + "px"
@@ -77,9 +82,6 @@ let speed = 90;
 function doorsPosition() {
     addingTime++
 
-
-
-
     if (addingTime % 25 === 0) {
         addDoor()
         doorsSpeed++;
@@ -93,8 +95,6 @@ function doorsPosition() {
             }
         }
     }
-
-
 
     addedDoors = document.querySelectorAll('.door');
     openedDoors = document.querySelectorAll('.open-door');
@@ -151,7 +151,15 @@ function checkWrittenLetters() {
             currentLetter = 0;
             addedDoors[0].classList.remove('door');
             addedDoors[0].classList.add('open-door')
+            currentRecord++;
+            userCurrentRecord.textContent ="Current Record: "+currentRecord;
 
+            if (currentRecord > record) {
+                record = currentRecord;
+                localStorage.clear("record")
+                localStorage.setItem("record", record);
+                userRecord.textContent = "Your Best : " + record;
+            }
         }
     }
 

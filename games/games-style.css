@@ -223,6 +223,16 @@
     flex-direction: column;
     align-items: center;
 }
+
+.games-info{
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
 .third-game .container {
     padding-left: 70px;
     padding-top: 40px;
