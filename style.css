@@ -64,6 +64,7 @@
     background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    user-select: none;
 }
 
 .languages .links .english-link {
@@ -104,6 +105,7 @@
 body {
     padding: 0;
     margin: 0;
+    user-select: none;
 }
 
 .persionPage,
@@ -111,6 +113,7 @@ body {
     background: url(images/haha.png)no-repeat fixed center;
     background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
 }
 
 .lessonsBody {

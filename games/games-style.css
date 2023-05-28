@@ -14,6 +14,7 @@
     background: url(../images/games-cat.webp) no-repeat fixed center;
     background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
 }
 
 .games-btn {
@@ -35,6 +36,7 @@
     background: url(../images/birds.jpg) no-repeat fixed center;
     background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
 }
 .boxes {
     position: absolute;
@@ -99,6 +101,7 @@
     background: url(../images/wp5567675.jpg) no-repeat fixed center;
     background-size: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
 }
 .game-2-container {
     padding-left: 20%;
@@ -213,6 +216,7 @@
 
 .third-game {
     background: #1F2833;
+    user-select: none;
 }
 
 .ghost-game {
