@@ -5,7 +5,7 @@ const userRecord = document.querySelector('.record')
 const userCurrentRecord = document.querySelector('.current-record')
 
 
-const words = ["book", "table", "desk", "pen", "car", "home", "picture", "window", "door", "road", "ship", "mobile", "stone", "hand", "eye", "head", "tongue", "finger", "knee"];
+const words = ["book", "table", "desk", "pen", "car", "home", "picture", "window", "door", "road", "ship", "mobile", "stone", "hand", "eye", "head", "tongue", "finger", "knee","apple","banana"];
 
 
 // ######### Key Press ########3
@@ -16,10 +16,8 @@ let currentWordLenght;
 let audio = new Audio("ghost.mp3");
 let currentRecord = 0;
 
-
 let record = localStorage.getItem("record");
 userRecord.textContent = "Your Best : " + record;
-
 
 document.addEventListener('keypress', keyPress);
 
@@ -152,11 +150,10 @@ function checkWrittenLetters() {
             addedDoors[0].classList.remove('door');
             addedDoors[0].classList.add('open-door')
             currentRecord++;
-            userCurrentRecord.textContent ="Current Record: "+currentRecord;
+            userCurrentRecord.textContent ="Current Record: "+ currentRecord;
 
             if (currentRecord > record) {
                 record = currentRecord;
-                localStorage.clear("record")
                 localStorage.setItem("record", record);
                 userRecord.textContent = "Your Best : " + record;
             }
