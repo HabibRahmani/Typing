@@ -54,6 +54,14 @@
     gap: 5px;
     transition: 0.5s;
 }
+.thirdBoxes {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    gap: 5px;
+    transition: 0.5s;
+}
 
 .box {
     height: 50px;
