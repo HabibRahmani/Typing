@@ -43,7 +43,14 @@
     display: flex;
     justify-content: center;
     top: 0;
-    left:500px;
+    gap: 5px;
+    transition: 0.5s;
+}
+.secondBoxes {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
     gap: 5px;
     transition: 0.5s;
 }

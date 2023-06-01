@@ -7,6 +7,8 @@ let currentWord = 0;
 let boxesTimer;
 let boxesTopPosition = 0;
 let addWordsTimer;
+let addWordsSecondTimer;
+
 
 
 document.addEventListener('keypress', keyPress);
@@ -20,6 +22,7 @@ function keyPress(e) {
 addWords()
 function addWords() {
     clearInterval(addWordsTimer)
+    clearInterval(addWordsSecondTimer)
     for (let i = 0; i < words[currentWord].length; i++) {
         let box = document.createElement('div')
         let letter = document.createElement('h1')
@@ -28,6 +31,7 @@ function addWords() {
         box.appendChild(letter)
         boxes.appendChild(box)
     }
+    randomLeftPosition()
     boxesTimer = setInterval(boxesPosition, 30)
 }
 
@@ -39,10 +43,15 @@ function boxesPosition() {
     if (boxesTopPosition === 680) {
         boxes.innerHTML = ""
         clearInterval(boxesTimer)
-        boxesTopPosition = -50
+        boxesTopPosition = -70
         boxes.style.top = boxesTopPosition + "px"
         // currentWord++;
 
-        addWordsTimer = setInterval(addWords, 2000)
+        addWordsTimer = setInterval(addWords, 500)
     }
+}
+
+function randomLeftPosition (){
+    let random = Math.floor(Math.random()* 750);
+    boxes.style.left = random + "px"
 }
