@@ -1,9 +1,16 @@
-const boxes = document.querySelector('.boxes')
 const resultText = document.querySelector('.resultText')
-
 let halfPosition = true;
 
+let value;
+document.addEventListener('keypress', keyPress);
+function keyPress(e) {
+    value = e.key;
+    console.log(value+" haha");
+    checkWrittenLetters()
+}
 
+// ######################## First Boxes ############################
+let boxes = document.querySelector('.boxes')
 const words = ["book", "table", "desk", "pen", "car", "home", "picture", "window", "door", "road", "ship", "mobile", "stone", "hand", "eye", "head", "tongue", "finger"]
 
 let currentWord = 0;
@@ -11,16 +18,8 @@ let boxesTimer;
 let boxesTopPosition = 0;
 let addWordsTimer;
 
-
-document.addEventListener('keypress', keyPress);
-
-function keyPress(e) {
-    value = e.key;
-
-}
-
-
 addWords()
+
 function addWords() {
     clearInterval(addWordsTimer)
     for (let i = 0; i < words[currentWord].length; i++) {
@@ -51,9 +50,8 @@ function boxesPosition() {
 }
 
 // ####################### Second Boxes ############################ // 
-const secondBoxes = document.querySelector('.secondBoxes')
-const secondWords = ["home", "ship", "desk", "pen", "picture", "road", "hand", "eye", "head", "tongue", "mobile","book", "car", "stone", "finger", "table", "window", "door"]
-
+let secondBoxes = document.querySelector('.secondBoxes')
+const secondWords = ["home", "ship", "desk", "pen", "picture", "road", "hand", "eye", "head", "tongue", "mobile", "book", "car", "stone", "finger", "table", "window", "door"]
 
 let secondCurrentWord = 0;
 let secondBoxesTimer;
@@ -61,7 +59,6 @@ let secondAddWordsTimer;
 let secondBoxesTopPosition = 0;
 
 secondAddWordsTimer = setInterval(secondAddWords, 1500)
-
 
 function secondAddWords() {
     clearInterval(secondAddWordsTimer)
@@ -86,15 +83,14 @@ function secondBoxesPosition() {
         clearInterval(secondBoxesTimer)
         secondBoxesTopPosition = -70
         secondBoxes.style.top = secondBoxesTopPosition + "px"
-        // currentWord++;
+        // secondCurrentWord++;
 
         secondAddWordsTimer = setInterval(secondAddWords, 500)
     }
 }
 // ####################### Third Boxes ############################ // 
-const thirdBoxes = document.querySelector('.thirdBoxes')
-const thirdWords = ["pen", "picture", "book", "tongue",  "road", "hand", "eye", "head", "car", "stone", "finger", "table", "window", "desk", "ship", "door", "mobile","home"]
-
+let thirdBoxes = document.querySelector('.thirdBoxes')
+const thirdWords = ["pen", "picture", "book", "tongue", "road", "hand", "eye", "head", "car", "stone", "finger", "table", "window", "desk", "ship", "door", "mobile", "home"]
 
 let thirdCurrentWord = 0;
 let thirdBoxesTimer;
@@ -102,7 +98,6 @@ let thirdAddWordsTimer;
 let thirdBoxesTopPosition = 0;
 
 thirdAddWordsTimer = setInterval(thirdAddWords, 3000)
-
 
 function thirdAddWords() {
     clearInterval(thirdAddWordsTimer)
@@ -127,25 +122,68 @@ function thirdBoxesPosition() {
         clearInterval(thirdBoxesTimer)
         thirdBoxesTopPosition = -70
         thirdBoxes.style.top = thirdBoxesTopPosition + "px"
-        // currentWord++;
+        // thirdCurrentWord++;
 
         thirdAddWordsTimer = setInterval(thirdAddWords, 500)
     }
 }
 
 // @@@@@@@@@@@@@@@@ Random Position @@@@@@@@@@@@@@@@ //
-function randomLeftPosition (currentBoxes){
-    if(halfPosition){
-        let random = Math.floor(Math.random()* 500);
+function randomLeftPosition(currentBoxes) {
+    if (halfPosition) {
+        let random = Math.floor(Math.random() * 500);
         currentBoxes.style.left = random + "px"
-        
         halfPosition = false;
-    }else{
-        console.log("else");
-        let random = Math.floor(Math.random()* 500) + 500;
-        console.log(random);
+    } else {
+        let random = Math.floor(Math.random() * 500) + 500;
         currentBoxes.style.left = random + "px"
-
         halfPosition = true;
+    }
+}
+// ############################# Chick Written Litters ##################################
+let currentLetter = 0;
+let startWritingWord;
+let changingBoxesColor;
+let currentParent;
+function checkWrittenLetters() {
+
+    if (startWritingWord === undefined) {
+        if (value === words[currentWord][0]) {
+            startWritingWord = words[currentWord]
+            changingBoxesColor = boxes.querySelectorAll(".box")
+            currentParent = 1;
+
+        } else if (value === secondWords[secondCurrentWord][0]) {
+            startWritingWord = secondWords[secondCurrentWord]
+            changingBoxesColor = secondBoxes.querySelectorAll(".box")
+            currentParent = 2;
+            
+        } else if (value === thirdWords[thirdCurrentWord][0]) {
+            startWritingWord = thirdWords[thirdCurrentWord]
+            changingBoxesColor = thirdBoxes.querySelectorAll(".box")
+            currentParent = 3;
+        }
+    }
+
+    console.log(startWritingWord);
+
+    if (startWritingWord != undefined) {
+        if (value === startWritingWord[currentLetter]) {
+            console.log("if opened");
+            changingBoxesColor[currentLetter].style.backgroundColor = "blue";
+            currentLetter++
+        }
+
+        if(currentLetter === startWritingWord.length ){
+            currentLetter = 0;
+            startWritingWord = undefined;
+            if(currentParent === 1){
+                boxes.innerHTML = ""
+            }else if (currentParent === 2){
+                secondBoxes.innerHTML = ""
+            }else if (currentParent === 3){
+                thirdBoxes.innerHTML = ""
+            }
+        }
     }
 }
