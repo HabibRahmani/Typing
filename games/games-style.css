@@ -42,6 +42,8 @@
     position: absolute;
     display: flex;
     justify-content: center;
+    top: 0;
+    left:500px;
     gap: 5px;
     transition: 0.5s;
 }
@@ -55,7 +57,7 @@
 
 .box h1 {
     font-size: 16px;
-    padding-top: 5px;
+    padding-top: 3px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -87,7 +89,7 @@
     height: 50px;
 }
 
-.lostText {
+.resultText {
     color: var(--main-color);
     font-size: 50px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
