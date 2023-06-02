@@ -1,10 +1,13 @@
 const resultText = document.querySelector('.resultText')
+const allParents = document.querySelector('.allParents')
+const leftBoxes = document.querySelector('.leftBoxes')
 let halfPosition = true;
 
 
 let currentLetter = 0;
 let startWritingWord;
-
+let loseCount = 0;
+let winCount = 25;
 
 let value;
 document.addEventListener('keypress', keyPress);
@@ -15,7 +18,7 @@ function keyPress(e) {
 
 // ######################## First Boxes ############################
 let boxes = document.querySelector('.boxes')
-const words = ["book", "table", "desk", "pen", "car", "home", "picture", "window", "door", "road", "ship", "mobile", "stone", "hand", "eye", "head", "tongue", "finger"]
+const words = ["book", "ant", "desk", "about", "car", "finger", "cat", "grow", "door", "deaf", "face", "cafe", "bead", "attack", "google", "cut", "cute", "finger"]
 
 let currentWord = 0;
 let boxesTimer;
@@ -26,6 +29,9 @@ addWords()
 
 function addWords() {
     clearInterval(addWordsTimer)
+    if (currentWord === words.length) {
+        currentWord = 0;
+    }
     for (let i = 0; i < words[currentWord].length; i++) {
         let box = document.createElement('div')
         let letter = document.createElement('h1')
@@ -43,15 +49,16 @@ function boxesPosition() {
     boxes.style.top = boxesTopPosition + "px"
 
     if (boxesTopPosition === 680) {
-        if (startWritingWord != undefined && parseInt(currentParent.style.top) === 680) {
+        if (startWritingWord != undefined && parseInt(boxes.style.top) === 680) {
             startWritingWord = undefined;
             currentLetter = 0;
         }
+        checkForLose()
         boxes.innerHTML = ""
         clearInterval(boxesTimer)
         boxesTopPosition = -70
         boxes.style.top = boxesTopPosition + "px"
-        // currentWord++;
+        currentWord++;
 
         addWordsTimer = setInterval(addWords, 500)
     }
@@ -59,7 +66,7 @@ function boxesPosition() {
 
 // ####################### Second Boxes ############################ // 
 let secondBoxes = document.querySelector('.secondBoxes')
-const secondWords = ["home", "ship", "desk", "pen", "picture", "road", "hand", "eye", "head", "tongue", "mobile", "book", "car", "stone", "finger", "table", "window", "door"]
+const secondWords = ["home", "ship", "pen", "hire", "picture", "road", "poor", "mobile", "shower", "hand", "mobile", "milk", "kill", "stone", "jook", "limmon", "open", "ride"]
 
 let secondCurrentWord = 0;
 let secondBoxesTimer;
@@ -69,6 +76,9 @@ let secondBoxesTopPosition = 0;
 secondAddWordsTimer = setInterval(secondAddWords, 1500)
 
 function secondAddWords() {
+    if (secondCurrentWord === secondWords.length) {
+        secondCurrentWord = 0;
+    }
     clearInterval(secondAddWordsTimer)
     for (let i = 0; i < secondWords[secondCurrentWord].length; i++) {
         let box = document.createElement('div')
@@ -87,22 +97,23 @@ function secondBoxesPosition() {
     secondBoxes.style.top = secondBoxesTopPosition + "px"
 
     if (secondBoxesTopPosition === 680) {
-        if (startWritingWord != undefined && parseInt(currentParent.style.top) === 680) {
+        if (startWritingWord != undefined && parseInt(secondBoxes.style.top) === 680) {
             startWritingWord = undefined;
             currentLetter = 0;
         }
+        checkForLose()
         secondBoxes.innerHTML = ""
         clearInterval(secondBoxesTimer)
         secondBoxesTopPosition = -70
         secondBoxes.style.top = secondBoxesTopPosition + "px"
-        // secondCurrentWord++;
+        secondCurrentWord++;
 
         secondAddWordsTimer = setInterval(secondAddWords, 500)
     }
 }
 // ####################### Third Boxes ############################ // 
 let thirdBoxes = document.querySelector('.thirdBoxes')
-const thirdWords = ["pen", "picture", "book", "tongue", "road", "hand", "eye", "head", "car", "stone", "finger", "table", "window", "desk", "ship", "door", "mobile", "home"]
+const thirdWords = ["window", "vivid", "use", "tongue", "user", "tittle", "wood", "yellow", "under", "zebra", "zoo", "table", "window", "total", "where", "when", "under", "window"]
 
 let thirdCurrentWord = 0;
 let thirdBoxesTimer;
@@ -112,6 +123,9 @@ let thirdBoxesTopPosition = 0;
 thirdAddWordsTimer = setInterval(thirdAddWords, 3000)
 
 function thirdAddWords() {
+    if (thirdCurrentWord === thirdWords.length) {
+        thirdCurrentWord = 0;
+    }
     clearInterval(thirdAddWordsTimer)
     for (let i = 0; i < thirdWords[thirdCurrentWord].length; i++) {
         let box = document.createElement('div')
@@ -130,28 +144,30 @@ function thirdBoxesPosition() {
     thirdBoxes.style.top = thirdBoxesTopPosition + "px"
 
     if (thirdBoxesTopPosition === 680) {
-        if (startWritingWord != undefined && parseInt(currentParent.style.top) === 680) {
+        if (startWritingWord != undefined && parseInt(thirdBoxes.style.top) === 680) {
             startWritingWord = undefined;
             currentLetter = 0;
         }
+        checkForLose()
         thirdBoxes.innerHTML = ""
         clearInterval(thirdBoxesTimer)
         thirdBoxesTopPosition = -70
         thirdBoxes.style.top = thirdBoxesTopPosition + "px"
-        // thirdCurrentWord++;
+        thirdCurrentWord++;
 
         thirdAddWordsTimer = setInterval(thirdAddWords, 500)
     }
 }
 
 // @@@@@@@@@@@@@@@@ Random Position @@@@@@@@@@@@@@@@ //
+
 function randomLeftPosition(currentBoxes) {
     if (halfPosition) {
-        let random = Math.floor(Math.random() * 500);
+        let random = Math.floor(Math.random() * 500) + 100;
         currentBoxes.style.left = random + "px"
         halfPosition = false;
     } else {
-        let random = Math.floor(Math.random() * 500) + 500;
+        let random = Math.floor(Math.random() * 500) + 400;
         currentBoxes.style.left = random + "px"
         halfPosition = true;
     }
@@ -166,21 +182,19 @@ function checkWrittenLetters() {
         if (value === words[currentWord][0]) {
             startWritingWord = words[currentWord]
             changingBoxesColor = boxes.querySelectorAll(".box")
-            currentParent = document.querySelector('.boxes');
+            currentParent = 1;
 
         } else if (value === secondWords[secondCurrentWord][0]) {
             startWritingWord = secondWords[secondCurrentWord]
             changingBoxesColor = secondBoxes.querySelectorAll(".box")
-            currentParent = document.querySelector('.secondBoxes');
+            currentParent = 2;
 
         } else if (value === thirdWords[thirdCurrentWord][0]) {
             startWritingWord = thirdWords[thirdCurrentWord]
             changingBoxesColor = thirdBoxes.querySelectorAll(".box")
-            currentParent = document.querySelector('.thirdBoxes');
+            currentParent = 3;
         }
     }
-
-
 
     if (startWritingWord != undefined) {
         if (value === startWritingWord[currentLetter]) {
@@ -189,9 +203,69 @@ function checkWrittenLetters() {
         }
 
         if (currentLetter === startWritingWord.length) {
+            if (currentParent === 1) {
+                boxes.innerHTML = ""
+                clearInterval(boxesTimer)
+                boxesTopPosition = -70
+                boxes.style.top = boxesTopPosition + "px"
+                currentWord++;
+                addWordsTimer = setInterval(addWords, 500)
+            } else if (currentParent === 2) {
+                secondBoxes.innerHTML = ""
+                clearInterval(secondBoxesTimer)
+                secondBoxesTopPosition = -70
+                secondBoxes.style.top = secondBoxesTopPosition + "px"
+                secondCurrentWord++;
+                secondAddWordsTimer = setInterval(secondAddWords, 500)
+            } else if (currentParent === 3) {
+                thirdBoxes.innerHTML = ""
+                clearInterval(thirdBoxesTimer)
+                thirdBoxesTopPosition = -70
+                thirdBoxes.style.top = thirdBoxesTopPosition + "px"
+                thirdCurrentWord++;
+                thirdAddWordsTimer = setInterval(thirdAddWords, 500)
+            }
+            winCount--
+            leftBoxes.textContent = winCount +" Left Over"
+            if (winCount === 0) {
+                allParents.innerHTML = ""
+                resultText.textContent = "You Win"
+                clearInterval(thirdAddWordsTimer)
+                clearInterval(thirdBoxesTimer)
+
+                clearInterval(addWordsTimer)
+                clearInterval(boxesTimer)
+
+                clearInterval(secondAddWordsTimer)
+                clearInterval(secondBoxesTimer)
+
+            }
             currentLetter = 0;
             startWritingWord = undefined;
-            currentParent.innerHTML = ""
         }
+    }
+}
+// ############################## Check for Lose @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+function checkForLose() {
+    loseCount++
+    if (loseCount <= 3) {
+        let hearts = document.querySelectorAll('.heart')
+        hearts[0].remove()
+    }
+
+    if (loseCount === 3) {
+        allParents.innerHTML = ""
+        clearInterval(thirdAddWordsTimer)
+        clearInterval(thirdBoxesTimer)
+
+        clearInterval(addWordsTimer)
+        clearInterval(boxesTimer)
+
+        clearInterval(secondAddWordsTimer)
+        clearInterval(secondBoxesTimer)
+
+
+        resultText.textContent = "Game Over"
     }
 }

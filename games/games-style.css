@@ -76,6 +76,14 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.leftBoxes {
+    position: absolute;
+    top: 0px;
+    right: 100px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+}
 .games-back-btn a{
     position: absolute;
     bottom: 20px;
