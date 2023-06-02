@@ -1,11 +1,15 @@
 const resultText = document.querySelector('.resultText')
 let halfPosition = true;
 
+
+let currentLetter = 0;
+let startWritingWord;
+
+
 let value;
 document.addEventListener('keypress', keyPress);
 function keyPress(e) {
     value = e.key;
-    console.log(value+" haha");
     checkWrittenLetters()
 }
 
@@ -39,6 +43,10 @@ function boxesPosition() {
     boxes.style.top = boxesTopPosition + "px"
 
     if (boxesTopPosition === 680) {
+        if (startWritingWord != undefined && parseInt(currentParent.style.top) === 680) {
+            startWritingWord = undefined;
+            currentLetter = 0;
+        }
         boxes.innerHTML = ""
         clearInterval(boxesTimer)
         boxesTopPosition = -70
@@ -79,6 +87,10 @@ function secondBoxesPosition() {
     secondBoxes.style.top = secondBoxesTopPosition + "px"
 
     if (secondBoxesTopPosition === 680) {
+        if (startWritingWord != undefined && parseInt(currentParent.style.top) === 680) {
+            startWritingWord = undefined;
+            currentLetter = 0;
+        }
         secondBoxes.innerHTML = ""
         clearInterval(secondBoxesTimer)
         secondBoxesTopPosition = -70
@@ -118,6 +130,10 @@ function thirdBoxesPosition() {
     thirdBoxes.style.top = thirdBoxesTopPosition + "px"
 
     if (thirdBoxesTopPosition === 680) {
+        if (startWritingWord != undefined && parseInt(currentParent.style.top) === 680) {
+            startWritingWord = undefined;
+            currentLetter = 0;
+        }
         thirdBoxes.innerHTML = ""
         clearInterval(thirdBoxesTimer)
         thirdBoxesTopPosition = -70
@@ -141,8 +157,7 @@ function randomLeftPosition(currentBoxes) {
     }
 }
 // ############################# Chick Written Litters ##################################
-let currentLetter = 0;
-let startWritingWord;
+
 let changingBoxesColor;
 let currentParent;
 function checkWrittenLetters() {
@@ -151,39 +166,32 @@ function checkWrittenLetters() {
         if (value === words[currentWord][0]) {
             startWritingWord = words[currentWord]
             changingBoxesColor = boxes.querySelectorAll(".box")
-            currentParent = 1;
+            currentParent = document.querySelector('.boxes');
 
         } else if (value === secondWords[secondCurrentWord][0]) {
             startWritingWord = secondWords[secondCurrentWord]
             changingBoxesColor = secondBoxes.querySelectorAll(".box")
-            currentParent = 2;
-            
+            currentParent = document.querySelector('.secondBoxes');
+
         } else if (value === thirdWords[thirdCurrentWord][0]) {
             startWritingWord = thirdWords[thirdCurrentWord]
             changingBoxesColor = thirdBoxes.querySelectorAll(".box")
-            currentParent = 3;
+            currentParent = document.querySelector('.thirdBoxes');
         }
     }
 
-    console.log(startWritingWord);
+
 
     if (startWritingWord != undefined) {
         if (value === startWritingWord[currentLetter]) {
-            console.log("if opened");
             changingBoxesColor[currentLetter].style.backgroundColor = "blue";
             currentLetter++
         }
 
-        if(currentLetter === startWritingWord.length ){
+        if (currentLetter === startWritingWord.length) {
             currentLetter = 0;
             startWritingWord = undefined;
-            if(currentParent === 1){
-                boxes.innerHTML = ""
-            }else if (currentParent === 2){
-                secondBoxes.innerHTML = ""
-            }else if (currentParent === 3){
-                thirdBoxes.innerHTML = ""
-            }
+            currentParent.innerHTML = ""
         }
     }
 }
