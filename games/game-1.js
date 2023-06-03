@@ -7,7 +7,7 @@ let currentParent;
 let currentLetter = 0;
 let startWritingWord;
 let loseCount = 0;
-let winCount = 25;
+let winCount = 30;
 
 let value;
 document.addEventListener('keypress', keyPress);

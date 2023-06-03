@@ -58,7 +58,7 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    top: 0;
+    top: -70px;
     gap: 5px;
     transition: 0.5s;
 }
