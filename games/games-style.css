@@ -335,5 +335,54 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: var(--main-color);
     margin-top: -70px;
+}
 
+/* ################ Power Game ################ */
+
+.power-game {
+    padding: 0;
+    margin: 0;
+    background: gray;
+}
+
+.degree {
+    position: absolute;
+    left: 800px;
+    background: url(../icons/thermometer-2.svg);
+    width: 200px;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 600px;
+}
+
+.vector {
+    position: absolute;
+    left: 870px;
+    top: 485px;
+    background: url(../icons/up-vector-3.svg);
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+}
+
+.text {
+    width: 600px;
+    position: absolute;
+    left: 100px;
+    top: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+}
+
+.power{
+    position: absolute;
+    right: 100px;
+    top: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    align-items: center;
+    text-align: center;
 }
