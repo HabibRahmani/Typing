@@ -63,14 +63,14 @@
     transition: 0.5s;
 }
 
-.box {
+.boxes .box {
     height: 50px;
     width: 50px;
     background: var(--text-color);
     text-align: center;
 }
 
-.box h1 {
+.boxes .box h1 {
     font-size: 16px;
     padding-top: 3px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -343,6 +343,7 @@
     padding: 0;
     margin: 0;
     background: gray;
+    user-select: none;
 }
 
 .degree {
@@ -350,7 +351,7 @@
     left: 800px;
     background: url(../icons/thermometer-2.svg);
     width: 200px;
-    height: 600px;
+    height: 625px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 600px;
@@ -358,14 +359,14 @@
 
 .vector {
     position: absolute;
-    left: 870px;
+    left: 865px;
     top: 485px;
     background: url(../icons/up-vector-3.svg);
-    width: 60px;
+    width: 70px;
     height: 60px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 50px;
+    background-size: 80px;
 }
 
 .text {
@@ -375,6 +376,10 @@
     top: 200px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 4px;
 }
 
 .power{
@@ -385,4 +390,17 @@
     font-size: 24px;
     align-items: center;
     text-align: center;
+}
+
+.text .box {
+    width: 20px;
+    height: 40px;
+    background: var(--text-color);
+    text-align: center;
+
+}
+
+.text .box h1 {
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
