@@ -63,14 +63,14 @@
     transition: 0.5s;
 }
 
-.boxes .box {
+.box {
     height: 50px;
     width: 50px;
     background: var(--text-color);
     text-align: center;
 }
 
-.boxes .box h1 {
+.box h1 {
     font-size: 16px;
     padding-top: 3px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
